@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>detail_product_page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <section
+        class="above-header-wrapper flex justify-center items-center bg-slate-900 h-[60px] lg:h-[40px] fixed z-50 top-0 left-0 right-0 p-6"
+      >
+        <div
+          class="above-header flex justify-between items-center w-full max-w-[1240px]"
+        >
+          <div
+            class="above-header__left flex flex-col md:flex-row md:justify-center md:items-center gap-[10px] lg:gap-[40px]"
+          >
+            <div
+              class="above-header__time hidden sm:flex justify-center items-center gap-[16px]"
+            >
+              <div class="above-header__open-time">
+                <i
+                  class="fa-regular fa-clock text-white opacity-50 me-[10px]"
+                ></i>
+                <span class="text-white opacity-50"
+                  >Open time: 8:00 - 18:00</span
+                >
+              </div>
+              <div class="above-header__open-days">
+                <span class="text-white opacity-50">Monday - Sunday</span>
+              </div>
+            </div>
+            <div class="above-header__social flex gap-[10px] lg:gap-[30px]">
+              <i
+                class="fa-brands fa-facebook text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-twitter text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-tumblr text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-vimeo-v text-white opacity-50 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="above-header__right flex flex-col sm:flex-row sm:justify-center sm:items-center gap-[10px] lg:gap-[30px]"
+          >
+            <div class="above-header__login cursor-pointer">
+              <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
+              <span class="text-white opacity-50">Đăng nhập</span>
+            </div>
+            <div class="above-header__register cursor-pointer">
+              <i
+                class="fa-solid fa-user-plus text-white opacity-50 me-[5px]"
+              ></i>
+              <span class="text-white opacity-50">Đăng ký</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="main-haeder-wrapper flex justify-center bg-[#f9f9f9] h-[300px] p-6"
+      >
+        <div
+          class="main-header mt-[40px] flex justify-between items-center w-full max-w-[1240px]"
+        >
+          <div class="main-header__img-logo">
+            <img
+              class="w-[200px] h-[100px] md:w-[400px] md:h-[200px]"
+              src="../assets/imgs/other/logo_shop.png"
+              alt="green_shop"
+            />
+          </div>
+          <div
+            class="main-header__right-grp flex justify-center items-center gap-[30px]"
+          >
+            <div class="main-header__search-grp w-[25vw] max-w-[350px]">
+              <div
+                class="main-header__phone text-[#6a6a4f] text-[12px] md:text-[16px] uppercase m-2"
+              >
+                <i class="fa-solid fa-phone"></i>
+                <span>Hỗ trợ: (04) 6674 2332 - (04) 3786 8904</span>
+              </div>
+              <div
+                class="main-header__search-box flex justify-center items-center rounded-full relative bg-white"
+              >
+                <input
+                  class="h-[40px] w-[80%]"
+                  type="text"
+                  placeholder="Tìm kiếm..."
+                />
+                <i
+                  class="fa-solid fa-magnifying-glass absolute top-3 right-4"
+                ></i>
+              </div>
+            </div>
+
+            <div class="main-header__cart">
+              <i class="fa-solid fa-basket-shopping me-2"></i>
+              <span>0</span>
+              <span class="hidden md:inline">Sản phẩm</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="header-nav-wrapper flex justify-center bg-[#4fc286] h-[80px]"
+      >
+        <div
+          class="text-2xl text-white cursor-pointer h-[80px] flex items-center w-full md:w-auto hover:bg-[#42a873] p-8"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav
+          class="header-nav hidden md:flex justify-start items-center w-full max-w-[1240px]"
+        >
+          <ul
+            class="header-nav__navigation-grp flex items-center uppercase text-[14px] lg:text-xl xl:text-2xl text-white"
+          >
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Trang chủ
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Giới thiệu
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2 pe-6 relative"
+            >
+              Sản phẩm
+              <i
+                class="fa-solid fa-sort-down absolute top-7 right-0 lg:top-6 xl:top-5"
+              ></i>
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2 pe-6 relative"
+            >
+              Sản phẩm mới
+              <i
+                class="fa-solid fa-sort-down absolute top-7 right-0 lg:top-6 xl:top-5"
+              ></i>
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Tin tức
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Liên hệ
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <!-- End Header -->
+
+    <!-- main-detail-product-page -->
+    <article
+      class="main-detail-product-wrapper flex justify-center items-center"
+    >
+      <section class="main-detail-product max-w-[1240px] w-full p-12">
+        <!-- breadcrumb -->
+        <div class="breadcum-detail-product pt-4 pb-16">
+          <a href="./homepage.html">Home</a>
+          <span>/</span>
+          <a href="./detail_product_page.html" class="text-[#4fc286]"
+            >Cây dạ lam</a
+          >
+        </div>
+        <!--end breadcrumb -->
+
+        <!-- detail-product -->
+        <div
+          class="detail-product flex flex-col justify-center items-center md:flex-row md:justify-between md:items-start gap-[20px]"
+        >
+          <!-- img-grp -->
+          <div class="detail-product__img-grp w-full md:w-[45%]">
+            <img src="../assets/imgs/product/da_lam_1.png" alt="product_img" />
+            <div
+              class="detail-product__img-list flex flex-wrap justify-between py-4"
+            >
+              <img
+                src="../assets/imgs/product/da_lam_1.png"
+                class="w-[19%]"
+                alt="product_img"
+              />
+              <img
+                src="../assets/imgs/product/da_lam_2.png"
+                class="w-[19%]"
+                alt="product_img"
+              />
+              <img
+                src="../assets/imgs/product/da_lam_1.png"
+                class="w-[19%]"
+                alt="product_img"
+              />
+              <img
+                src="../assets/imgs/product/da_lam_3.png"
+                class="w-[19%]"
+                alt="product_img"
+              />
+              <img
+                src="../assets/imgs/product/da_lam_3.png"
+                class="w-[19%]"
+                alt="product_img"
+              />
+            </div>
+          </div>
+          <!-- end img-grp -->
+
+          <!-- information -->
+          <div class="detail-product__information w-full md:w-[55%]">
+            <!-- basic -->
+            <div
+              class="detail-product__basic-info border-solid border-b-2 border-[#efefef] py-4"
+            >
+              <p
+                class="outstanding__name capitalize font-[500] text-lg text-[#919191]"
+              >
+                Cây dạ lam
+              </p>
+              <div class="text-xs my-2">
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <p>
+                <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                <span class="line-through text-[#333] opacity-60"
+                  >250.000 đ</span
+                >
+              </p>
+            </div>
+            <!-- end basic -->
+
+            <!-- desc -->
+            <div
+              class="detail-product__desc border-solid border-b-2 border-[#efefef] py-4"
+            >
+              <p class="text-sm text-[#919191] text-justify">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+                voluptatem veritatis illo modi quo autem rerum maiores
+                laboriosam facilis, corporis esse ullam nostrum voluptatum,
+                possimus velit neque incidunt facere sapiente?
+              </p>
+            </div>
+            <!-- end desc -->
+
+            <!-- quantity -->
+            <div
+              class="detail-product__quantity border-solid border-b-2 border-[#efefef] py-4 flex items-center gap-[30px]"
+            >
+              <p class="detail-product__quantity-title">Số lượng</p>
+
+              <div
+                class="detail-product__quantity-btn-grp flex items-center justify-center gap-[8px]"
+              >
+                <button
+                  class="detail-product__btn-desc w-[30px] h-[30px] border-solid border-2 border-[#efefef] flex justify-center items-center"
+                >
+                  -
+                </button>
+                <input
+                  class="detail-product__quantity w-[50px] h-[30px] border-solid border-2 border-[#efefef] text-center"
+                  value="1"
+                />
+
+                <button
+                  class="detail-product__btn-asc w-[30px] h-[30px] border-solid border-2 border-[#efefef] flex justify-center items-center"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <!-- end quantity -->
+
+            <!-- grp-buy-btn -->
+            <div class="detail-product__btn-buy-grp my-4">
+              <button
+                class="detail-product__btn-buy py-3 px-8 rounded-full border-solid border-2 border-[#4fc286] hover:bg-[#4fc286] uppercase hover:text-white"
+              >
+                Mua ngay
+              </button>
+
+              <i
+                class="fa-solid fa-magnifying-glass p-3 border-solid border-2 border-[#efefef] rounded-full mx-4"
+              ></i>
+              <i
+                class="fa-solid fa-heart p-3 border-solid border-2 border-[#efefef] rounded-full"
+              ></i>
+            </div>
+            <!-- end grp-buy-btn -->
+          </div>
+          <!-- end information -->
+        </div>
+        <!-- end detail-product -->
+
+        <!-- description-product-box -->
+        <div class="description-product-box mt-16">
+          <div class="description-product-box__title flex">
+            <p
+              class="description-product-box__infor-product w-1/3 uppercase border-solid border-2 border-b-0 border-s-[1px] border-e-[1px] border-[#aaaaaa] py-3 hover:text-[#4fc286] cursor-pointer flex justify-center items-center"
+            >
+              Thông tin sản phẩm
+            </p>
+            <p
+              class="description-product-box__cus-review w-1/3 uppercase py-3 hover:text-[#4fc286] cursor-pointer flex justify-center items-center"
+            >
+              Khách hàng đánh giá
+            </p>
+            <p
+              class="description-product-box__tag w-1/3 uppercase py-3 hover:text-[#4fc286] cursor-pointer flex justify-center items-center"
+            >
+              Thẻ tag
+            </p>
+          </div>
+
+          <div
+            class="description-product-box__detail border-solid border-[1px] border-[#aaaaaa]"
+          >
+            <div
+              class="description-product-box__detail-infor text-justify p-12"
+            >
+              <p class="py-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <p class="py-2">Nostrum dolorem sint sapiente. Doloribus autem</p>
+              <p class="py-2">Nostrum dolorem sint sapiente. Doloribus autem</p>
+              <p class="py-2">Nostrum dolorem sint sapiente. Doloribus autem</p>
+              <p class="py-2">Nostrum dolorem sint sapiente. Doloribus autem</p>
+              <p class="py-2">
+                sit dolorum! Velit deserunt nam optio? Autem qui quos
+                adipisicing elit. Vitae, necessitatibus fugiat. Laudantium sit
+                voluptas optio libero dicta Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Nostrum dolorem sint sapiente.
+                Doloribus autem sit dolorum! Velit deserunt nam optio? Autem qui
+                quos sapiente nesciunt iste dolore minima assumenda eaque? Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+                ipsa dolor quasi. Aperiam adipisci sapiente dolorum,
+                perspiciatis quisquam inventore dolore enim, consequuntur sit,
+                at doloremque eligendi nobis vel voluptate ad? Lorem ipsum
+                dolor, sit amet consectetur adipisicing elit. Vitae,
+                necessitatibus fugiat. Laudantium sit voluptas optio libero
+                dicta facilis, hic, quia tempore quidem culpa eligendi vel autem
+                eveniet modi accusamus. Corrupti?
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- end description-product-box -->
+
+        <!-- same product -->
+        <div class="same-product mt-16">
+          <div
+            class="same-product__title-grp border-solid border-b-2 border-[#efefef] mb-10"
+          >
+            <p
+              class="same-product__titlle text-[#4fc286] font-[700] py-4 border-solid border-b-[3px] border-[#4fc286] inline-block"
+            >
+              Sản phẩm cùng loại
+            </p>
+          </div>
+
+          <div
+            class="same-product__list w-full flex flex-wrap justify-between items-center"
+          >
+            <div
+              class="same-product__item relative flex flex-col justify-center items-center max-w-[100%] sm:max-w-[49%] lg:max-w-[24%] w-full border-solid border-2 border-[#e9e9e9] mb-4"
+            >
+              <p
+                class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+              >
+                New
+              </p>
+              <div class="same-product__img">
+                <img
+                  src="../assets/imgs/product/chan_chim_grp.png"
+                  class="w-full"
+                  alt="cay_chan_chim"
+                />
+              </div>
+              <div
+                class="same-product__content flex flex-col items-center justify-center p-4"
+              >
+                <p class="same-product__name">Cây chân chim</p>
+                <p>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </p>
+                <p>
+                  <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                  <span class="line-through text-[#333] opacity-60"
+                    >250.000 đ</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="same-product__item relative flex flex-col justify-center items-center max-w-[100%] sm:max-w-[49%] lg:max-w-[24%] w-full border-solid border-2 border-[#e9e9e9] mb-4"
+            >
+              <p
+                class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+              >
+                New
+              </p>
+              <div class="same-product__img">
+                <img
+                  src="../assets/imgs/product/chan_chim_grp.png"
+                  class="w-full"
+                  alt="cay_chan_chim"
+                />
+              </div>
+              <div
+                class="same-product__content flex flex-col items-center justify-center p-4"
+              >
+                <p class="same-product__name">Cây chân chim</p>
+                <p>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </p>
+                <p>
+                  <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                  <span class="line-through text-[#333] opacity-60"
+                    >250.000 đ</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="same-product__item relative flex flex-col justify-center items-center max-w-[100%] sm:max-w-[49%] lg:max-w-[24%] w-full border-solid border-2 border-[#e9e9e9] mb-4"
+            >
+              <p
+                class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+              >
+                New
+              </p>
+              <div class="same-product__img">
+                <img
+                  src="../assets/imgs/product/chan_chim_grp.png"
+                  class="w-full"
+                  alt="cay_chan_chim"
+                />
+              </div>
+              <div
+                class="same-product__content flex flex-col items-center justify-center p-4"
+              >
+                <p class="same-product__name">Cây chân chim</p>
+                <p>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </p>
+                <p>
+                  <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                  <span class="line-through text-[#333] opacity-60"
+                    >250.000 đ</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="same-product__item relative flex flex-col justify-center items-center max-w-[100%] sm:max-w-[49%] lg:max-w-[24%] w-full border-solid border-2 border-[#e9e9e9] mb-4"
+            >
+              <p
+                class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+              >
+                New
+              </p>
+              <div class="same-product__img">
+                <img
+                  src="../assets/imgs/product/chan_chim_grp.png"
+                  class="w-full"
+                  alt="cay_chan_chim"
+                />
+              </div>
+              <div
+                class="same-product__content flex flex-col items-center justify-center p-4"
+              >
+                <p class="same-product__name">Cây chân chim</p>
+                <p>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </p>
+                <p>
+                  <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                  <span class="line-through text-[#333] opacity-60"
+                    >250.000 đ</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end same product -->
+      </section>
+    </article>
+    <!-- end main-detail-product-page -->
+
+    <!-- footer -->
+    <footer class="footer-wrapper bg-slate-900">
+      <!-- footer abover -->
+      <div
+        class="abover-footer-wrapper flex justify-center items-center border-solid border-b-2 border-[#3c3c40] p-6"
+      >
+        <div
+          class="above-footer flex flex-col md:flex-row md:justify-between md:items-center w-full max-w-[1240px] sm:h-[120px] h-[150px]"
+        >
+          <div class="above-footer__social pb-2">
+            <p
+              class="abover-footer__social-title text-white opacity-50 uppercase"
+            >
+              Kênh thông tin từ chúng tôi:
+            </p>
+            <div class="abover-footer__socia-icons flex gap-[20px]">
+              <i
+                class="fa-brands fa-facebook text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-twitter text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-tumblr text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-vimeo-v text-white opacity-50 cursor-pointer py-2"
+              ></i>
+            </div>
+          </div>
+
+          <div
+            class="above-footer__register-email max-w-[700px] w-full flex flex-col sm:flex-row sm:justify-between sm:items-center"
+          >
+            <p class="text-white opacity-50 uppercase">
+              Đăng ký nhận <br />
+              email từ chúng tôi
+            </p>
+            <div
+              class="above-footer__email-box w-full max-w-[400px] md:max-w-[500px] cursor-pointer flex"
+            >
+              <input class="w-full h-[40px]" type="text" />
+              <div class="w-[40px] h-[40px] bg-[#4fc286] relative">
+                <i
+                  class="fa-solid fa-paper-plane text-red opacity-50 absolute top-2.5 right-2.5"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end footer-above -->
+
+      <!-- main-footer -->
+      <div
+        class="main-footer-wrapper flex justify-center items-center border-solid border-b-2 border-[#3c3c40] p-6"
+      >
+        <div
+          class="main-footer flex flex-col items-start lg:flex-row lg:justify-between lg:items-center w-full max-w-[1240px]"
+        >
+          <!-- about -->
+          <div class="main-footer__aboutf flex flex-col gap-[20px] px-2">
+            <img
+              class="w-[300px] h-[170px] cursor-pointer"
+              src="../assets/imgs/other/logo_shop.png"
+              alt="green_shop"
+            />
+            <p class="main-footer__desc text-white opacity-70">
+              Green shop được thành lập từ 8/2010 được sự <br />
+              tin tưởng của khách hàng trong suốt thời gian <br />
+              hoạt động đến nay
+            </p>
+            <div class="main-footer__mobile text-white opacity-70">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <span>Điện thoại: (84-4) 66 558 868</span>
+            </div>
+            <div class="main-footer__email text-white opacity-70">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: info@dkt.com.vn</span>
+            </div>
+          </div>
+          <!-- end about -->
+
+          <!-- customer -->
+          <div class="main-footer__customer px-2">
+            <p
+              class="main-footer__customer-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Thông tin khách hàng
+            </p>
+            <ul
+              class="main-footer__customer-list text-white opacity-70 flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tài khoản của tôi </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Sản phẩm yêu thích </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Lịch sử mua hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách đổi trả </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Gợi ý, khiếu nại </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end customer -->
+
+          <!-- support -->
+          <div class="main-footer__support px-2">
+            <p
+              class="main-footer__support-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Hỗ trợ dịch vụ
+            </p>
+            <ul
+              class="main-footer__support-list text-white opacity-70 flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hệ thống cửa hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hướng dẫn mua hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hướng dẫn thanh toán </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tích điểm đổi quà </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Câu hỏi thường gặp </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end support -->
+
+          <!-- policy -->
+          <div class="main-footer__policy px-2">
+            <p
+              class="main-footer__policy-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Chính sách ưu đãi
+            </p>
+            <ul
+              class="main-footer__policy-list text-white opacity-70 flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách giao hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách đổi trả sản phẩm </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách bảo hành </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Giới thiệu sản phẩm mới </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách trả góp </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end policy -->
+
+          <!-- news -->
+          <div class="main-footer__news px-2">
+            <p
+              class="main-footer__news-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Tin tức
+            </p>
+            <ul
+              class="main-footer__news-list text-white opacity-70 flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tin mới </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Khuyến mãi </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tuyển dụng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Download </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tags </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end news -->
+        </div>
+      </div>
+      <!-- end main-footer -->
+
+      <div class="bottom-footer-wrapper flex justify-center items-center p-6">
+        <div
+          class="bottom-footer flex flex-col items-start md:flex-row md:justify-between md:items-center w-full max-w-[1240px]"
+        >
+          <div class="bottom-footer__left">
+            <ul
+              class="text-white opacity-50 flex flex-col sm:flex-row gap-[10px] md:gap-[15px]"
+            >
+              <li>Sidemap</li>
+              <li>Danh mục sản phẩm</li>
+              <li>Hợp tác</li>
+              <li>Thông tin liên hệ</li>
+              <li>Câu hỏi thường gặp</li>
+            </ul>
+          </div>
+          <div
+            class="bottom-footer__payment-methods text-white opacity-50 flex gap-[10px] md:gap-[15px]"
+          >
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-paypal"></i>
+            <i class="fa-brands fa-cc-discover"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+  </body>
+</html>
