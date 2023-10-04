@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- font roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- boostrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <!-- tailwindCss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <section
+        class="above-header-wrapper flex justify-center items-center bg-slate-900 h-[60px] lg:h-[40px] fixed z-50 top-0 left-0 right-0 p-6"
+      >
+        <div
+          class="above-header flex justify-between items-center w-full max-w-[1240px]"
+        >
+          <div
+            class="above-header__left flex flex-col md:flex-row md:justify-center md:items-center gap-[10px] lg:gap-[40px]"
+          >
+            <div
+              class="above-header__time hidden sm:flex justify-center items-center gap-[16px]"
+            >
+              <div class="above-header__open-time">
+                <i
+                  class="fa-regular fa-clock text-white opacity-50 me-[10px]"
+                ></i>
+                <span class="text-white opacity-50"
+                  >Open time: 8:00 - 18:00</span
+                >
+              </div>
+              <div class="above-header__open-days">
+                <span class="text-white opacity-50">Monday - Sunday</span>
+              </div>
+            </div>
+            <div class="above-header__social flex gap-[10px] lg:gap-[30px]">
+              <i
+                class="fa-brands fa-facebook text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-twitter text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-tumblr text-white opacity-50 cursor-pointer"
+              ></i>
+              <i
+                class="fa-brands fa-vimeo-v text-white opacity-50 cursor-pointer"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="above-header__right flex flex-col sm:flex-row sm:justify-center sm:items-center gap-[10px] lg:gap-[30px]"
+          >
+            <div class="above-header__login cursor-pointer">
+              <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
+              <span class="text-white opacity-50">Đăng nhập</span>
+            </div>
+            <div class="above-header__register cursor-pointer">
+              <i
+                class="fa-solid fa-user-plus text-white opacity-50 me-[5px]"
+              ></i>
+              <span class="text-white opacity-50">Đăng ký</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="main-haeder-wrapper flex justify-center bg-[#f9f9f9] h-[300px] p-6"
+      >
+        <div
+          class="main-header mt-[40px] flex justify-between items-center w-full max-w-[1240px]"
+        >
+          <div class="main-header__img-logo">
+            <img
+              class="w-[200px] h-[100px] md:w-[400px] md:h-[200px]"
+              src="../assets/imgs/other/logo_shop.png"
+              alt="green_shop"
+            />
+          </div>
+          <div
+            class="main-header__right-grp flex justify-center items-center gap-[30px]"
+          >
+            <div class="main-header__search-grp w-[25vw] max-w-[350px]">
+              <div
+                class="main-header__phone text-[#6a6a4f] text-[12px] md:text-[16px] uppercase m-2"
+              >
+                <i class="fa-solid fa-phone"></i>
+                <span>Hỗ trợ: (04) 6674 2332 - (04) 3786 8904</span>
+              </div>
+              <div
+                class="main-header__search-box flex justify-center items-center rounded-full relative bg-white"
+              >
+                <input
+                  class="h-[40px] w-[80%]"
+                  type="text"
+                  placeholder="Tìm kiếm..."
+                />
+                <i
+                  class="fa-solid fa-magnifying-glass absolute top-3 right-4"
+                ></i>
+              </div>
+            </div>
+
+            <div class="main-header__cart">
+              <i class="fa-solid fa-basket-shopping me-2"></i>
+              <span>0</span>
+              <span class="hidden md:inline">Sản phẩm</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="header-nav-wrapper flex justify-center bg-[#4fc286] h-[80px]"
+      >
+        <div
+          class="text-2xl text-white cursor-pointer h-[80px] flex items-center w-full md:w-auto hover:bg-[#42a873] p-8"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav
+          class="header-nav hidden md:flex justify-start items-center w-full max-w-[1240px]"
+        >
+          <ul
+            class="header-nav__navigation-grp flex items-center uppercase text-[14px] lg:text-xl xl:text-2xl text-white"
+          >
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Trang chủ
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Giới thiệu
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2 pe-6 relative"
+            >
+              Sản phẩm
+              <i
+                class="fa-solid fa-sort-down absolute top-7 right-0 lg:top-6 xl:top-5"
+              ></i>
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2 pe-6 relative"
+            >
+              Sản phẩm mới
+              <i
+                class="fa-solid fa-sort-down absolute top-7 right-0 lg:top-6 xl:top-5"
+              ></i>
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Tin tức
+            </li>
+            <li
+              class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
+            >
+              Liên hệ
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <!-- End Header -->
+
+    <article class="main-products-wrapper flex justify-center items-center">
+      <section class="main-products max-w-[1240px] w-full p-4">
+        <section class="main-products__breadcrumb">
+          <!-- breadcrumb -->
+          <div class="breadcum-products pt-4 pb-12">
+            <a href="./homepage.html">Home</a>
+            <span>/</span>
+            <a href="./products_page.html" class="text-[#4fc286]">
+              Danh sách sản phẩm
+            </a>
+          </div>
+          <!--end breadcrumb -->
+
+          <div class="main-products__content flex justify-between gap-[30px]">
+            <div class="filter-products w-[30%]">
+              <!-- box-filter-category -->
+              <div class="filter-products__category-wrapper">
+                <div
+                  class="filter-products__category-title border-solid border-b-2 border-[#efefef]"
+                >
+                  <p
+                    class="text-[#4fc286] font-[600] border-solid border-b-4 border-[#4fc286] py-2 inline-block text-sm md:text-base"
+                  >
+                    Danh mục sản phẩm
+                  </p>
+                </div>
+
+                <div class="filter-products__category pt-4">
+                  <ul
+                    class="filter-products__category-list text-[#333] opacity-70 font-[500] flex flex-col gap-[20px]"
+                  >
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây chậu treo (10)</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây cỏ hoa (5)</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây dây leo</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer">Cây để bàn</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây may mắn</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây trang trí</span>
+                    </li>
+
+                    <li
+                      class="filter-products__category-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> Cây nội thất</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- end box-filter-category -->
+
+              <!-- box-filter price -->
+              <div class="filter-products__price-wrapper pt-6">
+                <div
+                  class="filter-products__price-title border-solid border-b-2 border-[#efefef]"
+                >
+                  <p
+                    class="text-[#4fc286] font-[600] border-solid border-b-4 border-[#4fc286] py-2 inline-block text-sm md:text-base"
+                  >
+                    Tìm theo giá
+                  </p>
+                </div>
+
+                <div class="filter-products__price pt-4">
+                  <ul
+                    class="filter-products__price-list text-[#333] opacity-70 font-[500] flex flex-col gap-[20px]"
+                  >
+                    <li
+                      class="filter-products__price-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> 200.000 Đ - 400.000 Đ</span>
+                    </li>
+
+                    <li
+                      class="filter-products__price-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> 400.000 Đ - 600.000 Đ</span>
+                    </li>
+
+                    <li
+                      class="filter-products__price-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"> 600.000 Đ - 800.000 Đ</span>
+                    </li>
+
+                    <li
+                      class="filter-products__price-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer"
+                        >800.000 Đ - 1.000.000 Đ</span
+                      >
+                    </li>
+
+                    <li
+                      class="filter-products__price-item border-solid border-b-2 border-[#efefef] py-2 hover:text-[#4fc286] text-xs md:text-sm"
+                    >
+                      <i class="fa-solid fa-chevron-right"></i>
+                      <span class="cursor-pointer">
+                        1.000.000 Đ - 1.200.000 Đ</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- end box-filter price -->
+
+              <!-- box-filter color -->
+              <div class="filter-products__color-wrapper pt-6">
+                <div
+                  class="filter-products__color-title border-solid border-b-2 border-[#efefef]"
+                >
+                  <p
+                    class="text-[#4fc286] font-[600] border-solid border-b-4 border-[#4fc286] py-2 inline-block text-sm md:text-base"
+                  >
+                    Tìm theo màu
+                  </p>
+                </div>
+
+                <div class="filter-products__color pt-4">
+                  <ul
+                    class="filter-products__color-list text-[#333] opacity-70 font-[500] flex flex-col sm:flex-row flex-wrap"
+                  >
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-green-400 rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Xanh cây</span>
+                    </li>
+
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-[#f3471c] rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Đỏ cam</span>
+                    </li>
+
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-[#ab29d6] rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Tím</span>
+                    </li>
+
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-[#1572fd] rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Xanh trời</span>
+                    </li>
+
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-[#e0e03d] rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Vàng</span>
+                    </li>
+
+                    <li
+                      class="filter-products__color-item py-2 hover:text-[#4fc286] text-xs md:text-sm flex items-center gap-[10px] w-full sm:w-[50%]"
+                    >
+                      <p
+                        class="w-[30px] h-[30px] bg-pink-300 rounded-[100%]"
+                      ></p>
+                      <span class="cursor-pointer"> Hồng</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- end box-filter color -->
+            </div>
+
+            <div class="products w-[70%]">
+              <!-- banner -->
+              <div class="products__banner">
+                <img
+                  src="../assets/imgs/other/banner-11140x217.png"
+                  alt="green_shop_banner"
+                />
+              </div>
+              <!-- end banner -->
+
+              <!-- sort-box -->
+              <div
+                class="products__sort-box flex gap-[10px] sm:gap-[30px] justify-end py-8"
+              >
+                <div class="product__sort text-sm sm:text-base">
+                  <span class="me-2">Sắp xếp theo</span>
+                  <select
+                    class="border-solid border-2 border-[#e4e4e4] text-[#333] opacity-70 cursor-pointer"
+                  >
+                    <option value="A-Z">Tên sp A-Z</option>
+                    <option value="Z-A">Tên sp Z-A</option>
+                    <option value="price_descending">Giá sp tăng dần</option>
+                    <option value="price_ascending">Giá sp giảm dần</option>
+                  </select>
+                </div>
+
+                <div class="product__show text-sm sm:text-base">
+                  <span class="me-2">Show</span>
+                  <select
+                    class="border-solid border-2 border-[#e4e4e4] text-[#333] opacity-70 cursor-pointer"
+                  >
+                    <option value="show_6">6</option>
+                    <option value="show_12">12</option>
+                    <option value="show_18">18</option>
+                  </select>
+                </div>
+              </div>
+              <!-- end sort-box -->
+
+              <!-- products-box -->
+              <div class="products__list"></div>
+              <!-- end products-box -->
+
+              <div class="products__sort"></div>
+
+              <!-- grid - products-list -->
+              <div
+                class="products__list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+              >
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- item -->
+                <div
+                  class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9]"
+                >
+                  <p
+                    class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
+                  >
+                    New
+                  </p>
+
+                  <div class="products__list-img">
+                    <img
+                      src="../assets/imgs/product/chan_chim_grp.png"
+                      class="w-full"
+                      alt="cay_chan_chim"
+                    />
+                  </div>
+                  <div
+                    class="products__list-content flex flex-col items-center justify-center p-4"
+                  >
+                    <p class="products__list-name">Cây chân chim</p>
+                    <p>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </p>
+                    <p>
+                      <span class="text-[#ca4d4d] font-[700]">250.000 đ</span>
+                      <span class="line-through text-[#333] opacity-60"
+                        >250.000 đ</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- end grid - products-list -->
+
+              <!-- pagination -->
+              <div class="products__pagination my-12 flex justify-end">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination flex gap-[10px]">
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >Trang trước</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >1</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >2</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >3</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >4</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-[#888] hover:bg-[#4fc286] hover:text-white"
+                        href="#"
+                        >Trang cuối</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <!-- end pagination -->
+            </div>
+          </div>
+        </section>
+      </section>
+    </article>
+
+    <!-- footer -->
+    <footer class="footer-wrapper bg-slate-900">
+      <!-- footer abover -->
+      <div
+        class="abover-footer-wrapper flex justify-center items-center border-solid border-b-2 border-[#3c3c40] p-6"
+      >
+        <div
+          class="above-footer flex flex-col md:flex-row md:justify-between md:items-center w-full max-w-[1240px] sm:h-[120px] h-[150px]"
+        >
+          <div class="above-footer__social pb-2">
+            <p
+              class="abover-footer__social-title text-white opacity-50 uppercase"
+            >
+              Kênh thông tin từ chúng tôi:
+            </p>
+            <div class="abover-footer__socia-icons flex gap-[20px]">
+              <i
+                class="fa-brands fa-facebook text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-twitter text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-tumblr text-white opacity-50 cursor-pointer py-2"
+              ></i>
+              <i
+                class="fa-brands fa-vimeo-v text-white opacity-50 cursor-pointer py-2"
+              ></i>
+            </div>
+          </div>
+
+          <div
+            class="above-footer__register-email max-w-[700px] w-full flex flex-col sm:flex-row sm:justify-between sm:items-center"
+          >
+            <p class="text-white opacity-50 uppercase">
+              Đăng ký nhận <br />
+              email từ chúng tôi
+            </p>
+            <div
+              class="above-footer__email-box w-full max-w-[400px] md:max-w-[500px] cursor-pointer flex"
+            >
+              <input class="w-full h-[40px]" type="text" />
+              <div class="w-[40px] h-[40px] bg-[#4fc286] relative">
+                <i
+                  class="fa-solid fa-paper-plane text-red opacity-50 absolute top-2.5 right-2.5"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end footer-above -->
+
+      <!-- main-footer -->
+      <div
+        class="main-footer-wrapper flex justify-center items-center border-solid border-b-2 border-[#3c3c40] p-6"
+      >
+        <div
+          class="main-footer flex flex-col items-start lg:flex-row lg:justify-between lg:items-center w-full max-w-[1240px]"
+        >
+          <!-- about -->
+          <div class="main-footer__aboutf flex flex-col gap-[20px] px-2">
+            <img
+              class="w-[300px] h-[170px] cursor-pointer"
+              src="../assets/imgs/other/logo_shop.png"
+              alt="green_shop"
+            />
+            <p
+              class="main-footer__desc text-[#333] opacity-70 font-[500] font-[600]"
+            >
+              Green shop được thành lập từ 8/2010 được sự <br />
+              tin tưởng của khách hàng trong suốt thời gian <br />
+              hoạt động đến nay
+            </p>
+            <div
+              class="main-footer__mobile text-[#333] opacity-70 font-[500] font-[600]"
+            >
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <span>Điện thoại: (84-4) 66 558 868</span>
+            </div>
+            <div
+              class="main-footer__email text-[#333] opacity-70 font-[500] font-[600]"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              <span>Email: info@dkt.com.vn</span>
+            </div>
+          </div>
+          <!-- end about -->
+
+          <!-- customer -->
+          <div class="main-footer__customer px-2">
+            <p
+              class="main-footer__customer-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Thông tin khách hàng
+            </p>
+            <ul
+              class="main-footer__customer-list text-[#333] opacity-70 font-[500] font-[600] flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tài khoản của tôi </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Sản phẩm yêu thích </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Lịch sử mua hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách đổi trả </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Gợi ý, khiếu nại </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end customer -->
+
+          <!-- support -->
+          <div class="main-footer__support px-2">
+            <p
+              class="main-footer__support-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Hỗ trợ dịch vụ
+            </p>
+            <ul
+              class="main-footer__support-list text-[#333] opacity-70 font-[500] font-[600] flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hệ thống cửa hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hướng dẫn mua hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Hướng dẫn thanh toán </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tích điểm đổi quà </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Câu hỏi thường gặp </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end support -->
+
+          <!-- policy -->
+          <div class="main-footer__policy px-2">
+            <p
+              class="main-footer__policy-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Chính sách ưu đãi
+            </p>
+            <ul
+              class="main-footer__policy-list text-[#333] opacity-70 font-[500] font-[600] flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách giao hàng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách đổi trả sản phẩm </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách bảo hành </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Giới thiệu sản phẩm mới </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Chính sách trả góp </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end policy -->
+
+          <!-- news -->
+          <div class="main-footer__news px-2">
+            <p
+              class="main-footer__news-title text-[#4fc286] text-lg uppercase py-8"
+            >
+              Tin tức
+            </p>
+            <ul
+              class="main-footer__news-list text-[#333] opacity-70 font-[500] font-[600] flex flex-col gap-[20px]"
+            >
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tin mới </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Khuyến mãi </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tuyển dụng </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Download </span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span> Tags </span>
+              </li>
+            </ul>
+          </div>
+          <!-- end news -->
+        </div>
+      </div>
+      <!-- end main-footer -->
+
+      <div class="bottom-footer-wrapper flex justify-center items-center p-6">
+        <div
+          class="bottom-footer flex flex-col items-start md:flex-row md:justify-between md:items-center w-full max-w-[1240px]"
+        >
+          <div class="bottom-footer__left">
+            <ul
+              class="text-white opacity-50 flex flex-col sm:flex-row gap-[10px] md:gap-[15px]"
+            >
+              <li>Sidemap</li>
+              <li>Danh mục sản phẩm</li>
+              <li>Hợp tác</li>
+              <li>Thông tin liên hệ</li>
+              <li>Câu hỏi thường gặp</li>
+            </ul>
+          </div>
+          <div
+            class="bottom-footer__payment-methods text-white opacity-50 flex gap-[10px] md:gap-[15px]"
+          >
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-paypal"></i>
+            <i class="fa-brands fa-cc-discover"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end footer -->
+  </body>
+</html>
