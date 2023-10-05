@@ -124,12 +124,6 @@ textarea {
   vertical-align: middle;
 }
 
-/* Table styling */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 ul li {
   list-style: none;
 }
