@@ -1,0 +1,287 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "gmail": "nhdung2208@gmail.com",
+      "password": "123456"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "productName": "Cây chân chim",
+      "imgURL": "./src/assets/imgs/product/chan_chim.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 2,
+      "productName": "Cây danh dự",
+      "imgURL": "./src/assets/imgs/product/danh_du_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.25,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 3,
+      "productName": "Cây đa búp đỏ",
+      "imgURL": "./src/assets/imgs/product/da_bup_do.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.5,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 4,
+      "productName": "Cây cọ ta",
+      "imgURL": "./src/assets/imgs/product/co_ta.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.2,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 5,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_2.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 6,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 7,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_3.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 8,
+      "productName": "Cây chân chim",
+      "imgURL": "./src/assets/imgs/product/chan_chim.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 9,
+      "productName": "Cây danh dự",
+      "imgURL": "./src/assets/imgs/product/danh_du_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.25,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 10,
+      "productName": "Cây đa búp đỏ",
+      "imgURL": "./src/assets/imgs/product/da_bup_do.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.5,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 11,
+      "productName": "Cây cọ ta",
+      "imgURL": "./src/assets/imgs/product/co_ta.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.2,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 12,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_2.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 13,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 14,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_3.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 15,
+      "productName": "Cây chân chim",
+      "imgURL": "./src/assets/imgs/product/chan_chim.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 16,
+      "productName": "Cây danh dự",
+      "imgURL": "./src/assets/imgs/product/danh_du_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.25,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 17,
+      "productName": "Cây đa búp đỏ",
+      "imgURL": "./src/assets/imgs/product/da_bup_do.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.5,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 18,
+      "productName": "Cây cọ ta",
+      "imgURL": "./src/assets/imgs/product/co_ta.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.2,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 19,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_2.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 20,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_1.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    },
+    {
+      "id": 21,
+      "productName": "Cây dạ lam",
+      "imgURL": "./src/assets/imgs/product/da_lam_3.png",
+      "desc": "",
+      "originalPrice": 250000,
+      "percentSale": 0.15,
+      "rate": {
+        "count": 100,
+        "average": 4.5
+      },
+      "createAt": 1696490186164
+    }
+  ],
+
+  "blogs": []
+}
