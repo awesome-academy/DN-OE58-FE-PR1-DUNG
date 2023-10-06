@@ -28,7 +28,11 @@ const renderProducts = (products) => {
       <div class="products__list-img">
         <a href="./detail_product_page.html?id=${product.id}">
           <img
+<<<<<<< HEAD
             src=${imgURL}
+=======
+            src="${imgURL}"
+>>>>>>> 524cf01 (features_delete_product_cart)
             class="w-full"
             alt="cay_chan_chim"
           />
