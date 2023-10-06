@@ -7,7 +7,6 @@ const getProducts = async () => {
 };
 
 const products = await getProducts();
-// console.log(products);
 
 // render Products
 const renderProducts = () => {
@@ -104,6 +103,7 @@ const handleAddProductToCart = () => {
   // get products cart từ local storage
   const cartsList = JSON.parse(localStorage.getItem("carts"));
   console.log(cartsList);
+  // show products to cart
   const htmlListCart = cartsList.map((item) => {
     const imgURL = "../." + `${item.imgURL}`;
     const priceProduct = item.originalPrice * (1 - item.percentSale);
@@ -153,19 +153,13 @@ const handleAddProductToCart = () => {
     </td>
   </tr>`;
   });
-
   if (document.querySelector(".main-cart__table-cart-tbody")) {
     document.querySelector(".main-cart__table-cart-tbody").innerHTML =
       htmlListCart.join("");
   }
 };
 
-// const start = () => {
-//   renderProducts();
-//   handleAddProductToCart();
-// };
-
-// start();
+const handleRedirectToDetailProduct = () => {};
 
 window.onload = () => {
   renderProducts();
