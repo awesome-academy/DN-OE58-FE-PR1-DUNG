@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>detail_product_page</title>
+    <title>login_page</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
@@ -104,7 +104,7 @@
                 <i class="fa-solid fa-phone"></i>
                 <span>Hỗ trợ: (04) 6674 2332 - (04) 3786 8904</span>
               </div>
-              <div
+              <form
                 class="main-header__search-box flex justify-center items-center rounded-full relative bg-white"
               >
                 <input
@@ -112,10 +112,13 @@
                   type="text"
                   placeholder="Tìm kiếm..."
                 />
-                <i
-                  class="fa-solid fa-magnifying-glass absolute top-3 right-4"
-                ></i>
-              </div>
+
+                <button type="submit" class="main-header__btn-search">
+                  <i
+                    class="fa-solid fa-magnifying-glass absolute top-3 right-4 cursor-pointer"
+                  ></i>
+                </button>
+              </form>
             </div>
 
             <div class="main-header__cart">
@@ -187,8 +190,85 @@
     </header>
     <!-- End Header -->
 
-    <article>
-      <p>checkout page</p>
+    <article class="main-login-wrapper flex justify-center items-center">
+      <section class="main-login max-w-[1240px] w-full p-12">
+        <!-- breadcrumb -->
+        <div class="breadcum-login pt-4 pb-12">
+          <a href="./homepage.html">Home</a>
+          <span>/</span>
+          <a href="./loginpage.html" class="text-[#4fc286]">Đăng nhập</a>
+        </div>
+        <!--end breadcrumb -->
+
+        <div
+          class="main-login__content flex flex-col md:flex-row justify-center gap-[50px]"
+        >
+          <!-- box-login -->
+          <div class="box-login w-full md:w-[50%]">
+            <p class="box-login__title uppercase text-[#4fc286] font-[700]">
+              Thông tin cá nhân
+            </p>
+            <form class="box-login__form mb-16">
+              <div class="box-login__email flex flex-col my-4">
+                <label for="email">Email của bạn là</label>
+                <input
+                  type="text"
+                  class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
+                  name="email"
+                />
+              </div>
+
+              <div class="box-login__password flex flex-col mb-4">
+                <label for="email">Mật khẩu</label>
+                <input
+                  type="text"
+                  class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
+                  name="email"
+                />
+              </div>
+
+              <div class="box-login__remember-user-grp flex gap-[30px] mt-8">
+                <div class="box-login__remember-user">
+                  <input type="checkbox" />
+                  <span class="font-[600] text-sm">Ghi nhớ tài khoản</span>
+                </div>
+
+                <div class="box-login__forget-user">
+                  <span class="text-sm italic underline text-[#333] opacity-70"
+                    >Bạn đã quên tài khoản?</span
+                  >
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="text-white uppercase bg-[#4fc286] rounded-full px-6 py-2 mt-8"
+              >
+                Đăng nhập
+              </button>
+            </form>
+          </div>
+          <!--end box-login -->
+
+          <!-- register-link -->
+          <div class="register-link w-full md:w-[50%]">
+            <p class="register-link__title uppercase text-[#4fc286] font-[700]">
+              Bạn chưa có tài khoản?
+            </p>
+            <p class="register-link__desc text-justify my-4">
+              Đăng ký tài khoản ngay để có thể mua hàng nhanh chóng và dễ dàng
+              hơn! Ngoài ra có rất nhiều chính sách và ưu đãi cho các thành viên
+              greenshop
+            </p>
+            <button
+              class="register-link__btn text-white uppercase bg-[#4fc286] rounded-full px-6 py-2 mt-8"
+            >
+              Đăng ký
+            </button>
+          </div>
+          <!-- end register-link -->
+        </div>
+      </section>
     </article>
 
     <!-- footer -->
@@ -441,5 +521,4 @@
     </footer>
     <!-- end footer -->
   </body>
-  <script type="module" src="../js/detail_product.js"></script>
 </html>

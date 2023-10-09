@@ -205,6 +205,7 @@ const handleAddProductFromDetailProductToCart = (product) => {
       carts.push({ ...product, quantity: inputQuantity });
     }
     localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
+    handleGetQuantityCart();
   });
 };
 

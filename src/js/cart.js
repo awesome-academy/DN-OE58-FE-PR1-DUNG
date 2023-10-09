@@ -2,7 +2,6 @@ import { KEY_CART_LIST } from "./constants.js";
 import { handleGetQuantityCart } from "./products.js";
 
 const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST));
-console.log("123");
 
 // render Product to Carts
 const handleRenderCart = (carts) => {
@@ -74,22 +73,61 @@ const handleRemoveProduct = (carts) => {
       const cartsUpdate = carts.filter(
         (cart) => cart.id != item.getAttribute("productId")
       );
-      console.log(cartsUpdate, "cartsUpdate");
       localStorage.setItem(KEY_CART_LIST, JSON.stringify(cartsUpdate));
       const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST));
       console.log(cartsList, "cart update");
       handleRenderCart(cartsList);
       handleGetQuantityCart();
       handleRemoveProduct(cartsList);
+      handleCountBill(cartsList);
     });
   });
 };
 
-// update quantity:
+// count total Bill:
+const handleCountBill = (carts) => {
+  let totalBill = 0;
+  carts.forEach((item) => {
+    totalBill += item.originalPrice * (1 - item.percentSale);
+  });
+  let vatTax = totalBill * 0.1;
+  let totalMoneyPay = totalBill + vatTax;
+  // console.log({ totalBill, vatTax, totalMoneyPay });
+
+  document.querySelector(
+    ".main-cart__table-payment-item"
+  ).children[1].innerHTML = totalBill;
+  document.querySelector(
+    ".main-cart__table-payment-item:nth-child(2)"
+  ).children[1].innerHTML = vatTax;
+  document.querySelector(
+    ".main-cart__table-payment-item:last-child"
+  ).children[1].innerHTML = totalMoneyPay;
+};
 
 window.onload = () => {
   handleRenderCart(cartsList);
   handleGetQuantityCart();
   handleRemoveProduct(cartsList);
-  console.log("aaaaaaaa");
+  handleCountBill(cartsList);
+
+  // cancel Cart:
+  document
+    .querySelector(".main-cart__btn-cancel")
+    .addEventListener("click", () => {
+      const cartsUpdate = [];
+      localStorage.setItem(KEY_CART_LIST, JSON.stringify(cartsUpdate));
+      handleRenderCart(cartsUpdate);
+      location.href = "./products_page.html";
+    });
+
+  // continue shopping:
+  document
+    .querySelector(".main-cart__btn-continue")
+    .addEventListener("click", () => {
+      location.href = "./products_page.html";
+    });
+
+  // redirect to checkout_page:
+  // document.querySelector(".");
 };
