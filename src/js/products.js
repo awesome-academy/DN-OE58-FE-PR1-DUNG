@@ -1,50 +1,44 @@
+import { KEY_CART_LIST } from "./constants.js";
+
 // get products litst
 const getProducts = async () => {
   const response = await fetch("http://localhost:3000/products");
   const data = await response.json();
-  //   console.log(data, "products");
   return data;
 };
-
-const products = await getProducts();
-// console.log(products);
+export const products = await getProducts();
 
 // render Products
-const renderProducts = () => {
+const renderProducts = (products) => {
   const htmlProductsList = products.map((product) => {
     const imgURL = product.imgURL.slice(1);
     return `<div
       class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9] cursor-pointer
-      " productId='${product.id}'
+      " productId=${product.id}
     >
       <p
         class="absolute bg-[#4fc286] rounded-[100%] p-4 top-4 left-4 uppercase text-white"
       >
         New
       </p>
-
-      <div
-           class="products__list-add-remove absolute top-0 right-0 flex items-center justify-around hover:border-solid hover:border-2 hover:border-[#d1d1d1] w-[60px] h-[40px] cursor-default"
-       >
-          <i
-              class="fa-solid fa-cart-plus products__list-add cursor-pointer"
-          ></i>
-          <i
-              class="fa-regular fa-trash-can products__list-remove cursor-pointer"
-          ></i>
-      </div>
+      <i
+        class="fa-solid fa-cart-plus products__list-add absolute bottom-6 right-2 text-xl cursor-pointer"
+      ></i>
 
       <div class="products__list-img">
-        <img
-          src="${imgURL}"
-          class="w-full"
-          alt="cay_chan_chim"
-        />
+        <a href="./detail_product_page.html?id=${product.id}">
+          <img
+            src=${imgURL}
+            class="w-full"
+            alt="cay_chan_chim"
+          />
+        </a>
       </div>
+
       <div
         class="products__list-content flex flex-col items-center justify-center p-4"
       >
-        <p class="products__list-name">"${product.productName}"</p>
+        <p class="products__list-name">${product.productName}</p>
         <p>
           <i class="fa-regular fa-star"></i>
           <i class="fa-regular fa-star"></i>
@@ -70,19 +64,17 @@ const renderProducts = () => {
 };
 
 // add to cart
-const handleAddProductToCart = () => {
-  const carts = [];
+const handleAddProductFromProductsToCart = () => {
+  const carts = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
   const productsList = document.querySelectorAll(".products__list-item");
 
   productsList.forEach((product) => {
     product.addEventListener("click", (e) => {
       const id = product.getAttribute("productId");
 
-      //   add products to cart, save on local storage
       if (e.target.classList.contains("products__list-add")) {
         // console.log(true, id);
         const productToCart = products.find((item) => item.id === Number(id));
-        // console.log(productToCart);
 
         if (carts.length === 0) {
           carts.push({ ...productToCart, quantity: 1 });
@@ -96,78 +88,228 @@ const handleAddProductToCart = () => {
             carts.push({ ...productToCart, quantity: 1 });
           }
         }
-        localStorage.setItem("carts", JSON.stringify(carts));
+        localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
+      } else {
+        // redirect to detail_page
+        location.href = "./detail_product_page.html";
+      }
+      handleGetQuantityCart();
+    });
+  });
+};
+
+// filter product:
+
+export const handleGetQuantityCart = () => {
+  const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
+  document.querySelector(
+    ".main-header__cart"
+  ).children[1].innerHTML = `${cartsList.length}`;
+};
+
+window.onload = () => {
+  renderProducts(products);
+  handleAddProductFromProductsToCart();
+  handleGetQuantityCart();
+
+  // filter:
+
+  // filter category:
+  const categoriesFilter = document.querySelectorAll(
+    ".filter-products__category-item span"
+  );
+  categoriesFilter.forEach((item) => {
+    item.addEventListener("click", () => {
+      let productsFilter = [];
+
+      switch (item.innerText) {
+        case "Cây chậu treo":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây chậu treo"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây cỏ hoa":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây cỏ hoa"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây dây leo":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây dây leo"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây để bàn":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây để bàn"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây may mắn":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây may mắn"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây trang trí":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây trang trí"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Cây nội thất":
+          productsFilter = products.filter(
+            (product) => product.category === "Cây nội thất"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        default:
+          renderProducts(products);
       }
     });
   });
 
-  // get products cart từ local storage
-  const cartsList = JSON.parse(localStorage.getItem("carts"));
-  console.log(cartsList);
-  const htmlListCart = cartsList.map((item) => {
-    const imgURL = "../." + `${item.imgURL}`;
-    const priceProduct = item.originalPrice * (1 - item.percentSale);
-    return `<tr class="main-cart__table-cart-item">
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0]"
-    >
-      <img
-        src="${imgURL}"
-        class="inline"
-        alt="green_shop"
-      />
-    </td>
+  // filter price:
+  const priceFilter = document.querySelectorAll(
+    ".filter-products__price-item span"
+  );
+  priceFilter.forEach((item) => {
+    item.addEventListener("click", () => {
+      let productsFilter = [];
 
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] text-[#4fc286] uppercase font-[500]"
-    >
-      ${item.productName}
-    </td>
+      switch (item.innerText) {
+        case "200.000 Đ - 400.000 Đ":
+          productsFilter = products.filter(
+            (product) =>
+              product.originalPrice * (1 - product.percentSale) > 200000 &&
+              product.originalPrice * (1 - product.percentSale) < 400000
+          );
+          renderProducts(productsFilter);
+          break;
 
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      ${priceProduct} đ
-    </td>
+        case "400.000 Đ - 600.000 Đ":
+          productsFilter = products.filter(
+            (product) =>
+              product.originalPrice * (1 - product.percentSale) > 400000 &&
+              product.originalPrice * (1 - product.percentSale) < 600000
+          );
+          renderProducts(productsFilter);
+          break;
 
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      <input
-        type="text"
-        class="p-2 w-[50px] text-center border-solid border-[1px] border-[#e0e0e0]"
-        value="${item.quantity}"
-      />
-    </td>
+        case "600.000 Đ - 800.000 Đ":
+          productsFilter = products.filter(
+            (product) =>
+              product.originalPrice * (1 - product.percentSale) > 600000 &&
+              product.originalPrice * (1 - product.percentSale) < 800000
+          );
+          renderProducts(productsFilter);
+          break;
 
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      ${priceProduct * item.quantity} đ
-    </td>
+        case "800.000 Đ - 1.000.000 Đ":
+          productsFilter = products.filter(
+            (product) =>
+              product.originalPrice * (1 - product.percentSale) > 800000 &&
+              product.originalPrice * (1 - product.percentSale) < 1000000
+          );
+          renderProducts(productsFilter);
+          break;
 
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      <i class="fa-solid fa-trash-can"></i>
-    </td>
-  </tr>`;
+        case "1.000.000 Đ - 1.200.000 Đ":
+          productsFilter = products.filter(
+            (product) =>
+              product.originalPrice * (1 - product.percentSale) > 1000000 &&
+              product.originalPrice * (1 - product.percentSale) < 1200000
+          );
+          renderProducts(productsFilter);
+          break;
+
+        default:
+          renderProducts(products);
+      }
+    });
   });
 
-  if (document.querySelector(".main-cart__table-cart-tbody")) {
-    document.querySelector(".main-cart__table-cart-tbody").innerHTML =
-      htmlListCart.join("");
-  }
-};
+  // filter color:
+  const colorsFilter = document.querySelectorAll(
+    ".filter-products__color-item span"
+  );
+  colorsFilter.forEach((item) => {
+    item.addEventListener("click", () => {
+      let productsFilter = [];
 
-// const start = () => {
-//   renderProducts();
-//   handleAddProductToCart();
-// };
+      switch (item.innerText) {
+        case "Xanh cây":
+          productsFilter = products.filter(
+            (product) => product.color === "Xanh cây"
+          );
+          renderProducts(productsFilter);
+          break;
 
-// start();
+        case "Đỏ cam":
+          productsFilter = products.filter(
+            (product) => product.color === "Đỏ cam"
+          );
+          renderProducts(productsFilter);
+          break;
 
-window.onload = () => {
-  renderProducts();
-  handleAddProductToCart();
+        case "Tím":
+          productsFilter = products.filter(
+            (product) => product.color === "Tím"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Xanh trời":
+          productsFilter = products.filter(
+            (product) => product.color === "Xanh trời"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Vàng":
+          productsFilter = products.filter(
+            (product) => product.color === "Vàng"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        case "Hồng":
+          productsFilter = products.filter(
+            (product) => product.color === "Hồng"
+          );
+          renderProducts(productsFilter);
+          break;
+
+        default:
+          renderProducts(products);
+      }
+    });
+  });
+
+  // search product:
+  const searchButton = document.querySelector(".main-header__btn-search i");
+  searchButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let searchInput = document.querySelector(
+      ".main-header__search-box input"
+    ).value;
+    if (searchInput) {
+      const productsFilter = products.filter((item) =>
+        item.productName.includes(searchInput)
+      );
+      renderProducts(productsFilter);
+    } else {
+      return;
+    }
+  });
 };
