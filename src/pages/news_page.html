@@ -41,6 +41,7 @@
   <body>
     <!-- Header -->
     <header>
+      <!-- above-header -->
       <section
         class="above-header-wrapper flex justify-center items-center bg-slate-900 h-[60px] lg:h-[40px] fixed z-50 top-0 left-0 right-0 p-6"
       >
@@ -85,30 +86,36 @@
           >
             <div class="above-header__login cursor-pointer">
               <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
-              <span class="text-white opacity-50">Đăng nhập</span>
+              <a class="text-white opacity-50" href="./loginpage.html"
+                >Đăng nhập</a
+              >
             </div>
             <div class="above-header__register cursor-pointer">
               <i
                 class="fa-solid fa-user-plus text-white opacity-50 me-[5px]"
               ></i>
-              <span class="text-white opacity-50">Đăng ký</span>
+              <a class="text-white opacity-50" href="./register_page.html"
+                >Đăng ký</a
+              >
             </div>
           </div>
         </div>
       </section>
-
+      <!-- main-header -->
       <section
-        class="main-haeder-wrapper flex justify-center bg-[#f9f9f9] h-[300px] p-6"
+        class="main-header-wrapper flex justify-center bg-[#f9f9f9] h-[300px] p-6"
       >
         <div
           class="main-header mt-[40px] flex justify-between items-center w-full max-w-[1240px]"
         >
           <div class="main-header__img-logo">
-            <img
-              class="w-[200px] h-[100px] md:w-[400px] md:h-[200px]"
-              src="../assets/imgs/other/logo_shop.png"
-              alt="green_shop"
-            />
+            <a href="./homepage.html">
+              <img
+                class="w-[200px] h-[100px] md:w-[400px] md:h-[200px]"
+                src="../assets/imgs/other/logo_shop.png"
+                alt="green_shop"
+              />
+            </a>
           </div>
           <div
             class="main-header__right-grp flex justify-center items-center gap-[30px]"
@@ -135,22 +142,26 @@
             </div>
 
             <div class="main-header__cart">
-              <i class="fa-solid fa-basket-shopping me-2"></i>
+              <a href="./cart_page.html"
+                ><i class="fa-solid fa-basket-shopping me-2"></i
+              ></a>
               <span>0</span>
               <span class="hidden md:inline">Sản phẩm</span>
             </div>
           </div>
         </div>
       </section>
-
+      <!-- header-navigation -->
       <section
         class="header-nav-wrapper flex justify-center bg-[#4fc286] h-[80px]"
       >
+        <!-- bars icon -->
         <div
           class="text-2xl text-white cursor-pointer h-[80px] flex items-center w-full md:w-auto hover:bg-[#42a873] p-8"
         >
           <i class="fa-solid fa-bars"></i>
         </div>
+        <!-- navigation -->
         <nav
           class="header-nav hidden md:flex justify-start items-center w-full max-w-[1240px]"
         >
@@ -160,7 +171,7 @@
             <li
               class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
             >
-              Trang chủ
+              <a href="./homepage.html">Trang chủ</a>
             </li>
             <li
               class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
@@ -170,7 +181,7 @@
             <li
               class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2 pe-6 relative"
             >
-              Sản phẩm
+              <a href="./products_page.html">Sản phẩm</a>
               <i
                 class="fa-solid fa-sort-down absolute top-7 right-0 lg:top-6 xl:top-5"
               ></i>
@@ -186,12 +197,12 @@
             <li
               class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
             >
-              Tin tức
+              <a href="./news_page.html">Tin tức</a>
             </li>
             <li
               class="cursor-pointer h-[80px] flex items-center hover:bg-[#42a873] p-4 m-2"
             >
-              Liên hệ
+              <a href="./contact_page.html">Liên hệ</a>
             </li>
           </ul>
         </nav>

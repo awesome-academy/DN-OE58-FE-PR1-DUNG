@@ -1,15 +1,15 @@
+import { KEY_CART_LIST } from "./constants.js";
+
 // get products litst
 const getProducts = async () => {
   const response = await fetch("http://localhost:3000/products");
   const data = await response.json();
-  //   console.log(data, "products");
   return data;
 };
-
-const products = await getProducts();
+export const products = await getProducts();
 
 // render Products
-const renderProducts = () => {
+const renderProducts = (products) => {
   const htmlProductsList = products.map((product) => {
     const imgURL = product.imgURL.slice(1);
     return `<div
@@ -21,25 +21,20 @@ const renderProducts = () => {
       >
         New
       </p>
-
-      <div
-           class="products__list-add-remove absolute top-0 right-0 flex items-center justify-around hover:border-solid hover:border-2 hover:border-[#d1d1d1] w-[60px] h-[40px] cursor-default"
-       >
-          <i
-              class="fa-solid fa-cart-plus products__list-add cursor-pointer"
-          ></i>
-          <i
-              class="fa-regular fa-trash-can products__list-remove cursor-pointer"
-          ></i>
-      </div>
+      <i
+        class="fa-solid fa-cart-plus products__list-add absolute bottom-6 right-2 text-xl cursor-pointer"
+      ></i>
 
       <div class="products__list-img">
-        <img
-          src="${imgURL}"
-          class="w-full"
-          alt="cay_chan_chim"
-        />
+        <a href="./detail_product_page.html?id=${product.id}">
+          <img
+            src="${imgURL}"
+            class="w-full"
+            alt="cay_chan_chim"
+          />
+        </a>
       </div>
+
       <div
         class="products__list-content flex flex-col items-center justify-center p-4"
       >
@@ -69,19 +64,18 @@ const renderProducts = () => {
 };
 
 // add to cart
-const handleAddProductToCart = () => {
-  const carts = [];
+export const handleAddProductFromProductsToCart = () => {
+  const carts = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
+
   const productsList = document.querySelectorAll(".products__list-item");
 
   productsList.forEach((product) => {
     product.addEventListener("click", (e) => {
       const id = product.getAttribute("productId");
 
-      //   add products to cart, save on local storage
       if (e.target.classList.contains("products__list-add")) {
         // console.log(true, id);
         const productToCart = products.find((item) => item.id === Number(id));
-        // console.log(productToCart);
 
         if (carts.length === 0) {
           carts.push({ ...productToCart, quantity: 1 });
@@ -95,73 +89,24 @@ const handleAddProductToCart = () => {
             carts.push({ ...productToCart, quantity: 1 });
           }
         }
-        localStorage.setItem("carts", JSON.stringify(carts));
+        localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
+      } else {
+        // redirect to detail_page
+        location.href = "./detail_product_page.html";
       }
     });
   });
-
-  // get products cart từ local storage
-  const cartsList = JSON.parse(localStorage.getItem("carts"));
-  console.log(cartsList);
-  // show products to cart
-  const htmlListCart = cartsList.map((item) => {
-    const imgURL = "../." + `${item.imgURL}`;
-    const priceProduct = item.originalPrice * (1 - item.percentSale);
-    return `<tr class="main-cart__table-cart-item">
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0]"
-    >
-      <img
-        src="${imgURL}"
-        class="inline"
-        alt="green_shop"
-      />
-    </td>
-
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] text-[#4fc286] uppercase font-[500]"
-    >
-      ${item.productName}
-    </td>
-
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      ${priceProduct} đ
-    </td>
-
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      <input
-        type="text"
-        class="p-2 w-[50px] text-center border-solid border-[1px] border-[#e0e0e0]"
-        value="${item.quantity}"
-      />
-    </td>
-
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      ${priceProduct * item.quantity} đ
-    </td>
-
-    <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
-    >
-      <i class="fa-solid fa-trash-can"></i>
-    </td>
-  </tr>`;
-  });
-  if (document.querySelector(".main-cart__table-cart-tbody")) {
-    document.querySelector(".main-cart__table-cart-tbody").innerHTML =
-      htmlListCart.join("");
-  }
 };
 
-const handleRedirectToDetailProduct = () => {};
+export const handleGetQuantityCart = () => {
+  const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
+  document.querySelector(
+    ".main-header__cart"
+  ).children[1].innerHTML = `${cartsList.length}`;
+};
 
 window.onload = () => {
-  renderProducts();
-  handleAddProductToCart();
+  renderProducts(products);
+  handleAddProductFromProductsToCart();
+  handleGetQuantityCart();
 };
