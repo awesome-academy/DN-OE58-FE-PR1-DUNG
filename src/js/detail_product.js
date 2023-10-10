@@ -1,7 +1,6 @@
-import { KEY_CART_LIST } from "./constants.js";
-import { handleGetQuantityCart, products } from "./products.js";
+import { KEY_CART_LIST, KEY_USER_LOGIN } from "./constants.js";
+import { handleGetQuantityCart, handleLoadUser, products } from "./products.js";
 
-// render detail product
 export const handleRenderDetailProduct = (product) => {
   const productElement = document.querySelector(
     ".main-detail-product__product-grp"
@@ -177,11 +176,9 @@ export const handleRenderDetailProduct = (product) => {
       </div>
     </div>
     <!-- end description-product-box -->`;
-  // show detail product
   productElement.innerHTML = htmlProduct;
 };
 
-// add product form detail product page to cart
 const handleAddProductFromDetailProductToCart = (product) => {
   const buttonAdd = document.querySelector(".detail-product__btn-buy");
   let inputQuantity = 1;
@@ -196,7 +193,6 @@ const handleAddProductFromDetailProductToCart = (product) => {
     if (carts.length) {
       if (carts.find((item) => item.id === product.id)) {
         const product_ = carts.find((item) => item.id === product.id);
-        console.log(product_);
         product_.quantity += inputQuantity;
       } else {
         carts.push({ ...product, quantity: inputQuantity });
@@ -214,21 +210,17 @@ window.onload = () => {
   const productId = urlParams.get("id");
   const product = products.find((item) => item.id === Number(productId));
 
-  // render product
   handleRenderDetailProduct(product);
 
-  // change value quantity
   let quantity = parseInt(
     document.querySelector("input[name='quantity']").value
   );
-  // increase quantity
   const btnIncrease = document.querySelector(".detail-product__btn-increase");
   btnIncrease.addEventListener("click", () => {
     quantity = isNaN(quantity) ? 1 : quantity;
     quantity++;
     document.querySelector("input[name='quantity']").value = quantity;
   });
-  // decrease quantity
   const btnDecrease = document.querySelector(".detail-product__btn-decrease");
   btnDecrease.addEventListener("click", () => {
     quantity = isNaN(quantity) ? 1 : quantity;
@@ -237,6 +229,15 @@ window.onload = () => {
   });
 
   handleAddProductFromDetailProductToCart(product);
-  // update quantity cart
   handleGetQuantityCart();
+  handleLoadUser();
+
+  if (localStorage.getItem(KEY_USER_LOGIN)) {
+    document
+      .querySelector(".above-header__btn-logout")
+      .addEventListener("click", () => {
+        localStorage.removeItem(KEY_USER_LOGIN);
+        handleLoadUser();
+      });
+  }
 };

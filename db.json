@@ -1,12 +1,22 @@
 {
   "users": [
     {
-      "id": 1,
-      "gmail": "nhdung2208@gmail.com",
-      "password": "123456"
+      "email": "dung1@gmail.com",
+      "password": "123456",
+      "phone": "0965513968",
+      "address": "Số 34",
+      "name": "Nguyễn Hữu Dũng",
+      "id": 1
+    },
+    {
+      "email": "dung2@gmail.com",
+      "password": "123456789",
+      "phone": "0965513968",
+      "address": "Số 34",
+      "name": "Nguyễn Hữu Dũng",
+      "id": 2
     }
   ],
-
   "products": [
     {
       "id": 1,
@@ -303,8 +313,6 @@
       "createAt": 1696490186164
     }
   ],
-
   "carts": [],
-
   "blogs": []
 }

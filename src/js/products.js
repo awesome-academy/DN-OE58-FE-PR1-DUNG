@@ -1,6 +1,5 @@
-import { KEY_CART_LIST } from "./constants.js";
+import { KEY_CART_LIST, KEY_USER_LOGIN } from "./constants.js";
 
-// get products litst
 const getProducts = async () => {
   const response = await fetch("http://localhost:3000/products");
   const data = await response.json();
@@ -8,7 +7,6 @@ const getProducts = async () => {
 };
 export const products = await getProducts();
 
-// render Products
 const renderProducts = (products) => {
   const htmlProductsList = products.map((product) => {
     const imgURL = product.imgURL.slice(1);
@@ -56,14 +54,12 @@ const renderProducts = (products) => {
       </div>
     </div>`;
   });
-  // render vào list
   if (document.querySelector(".products__list")) {
     document.querySelector(".products__list").innerHTML =
       htmlProductsList.join("");
   }
 };
 
-// add to cart
 const handleAddProductFromProductsToCart = () => {
   const carts = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
   const productsList = document.querySelectorAll(".products__list-item");
@@ -73,7 +69,6 @@ const handleAddProductFromProductsToCart = () => {
       const id = product.getAttribute("productId");
 
       if (e.target.classList.contains("products__list-add")) {
-        // console.log(true, id);
         const productToCart = products.find((item) => item.id === Number(id));
 
         if (carts.length === 0) {
@@ -90,15 +85,12 @@ const handleAddProductFromProductsToCart = () => {
         }
         localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
       } else {
-        // redirect to detail_page
         location.href = "./detail_product_page.html";
       }
       handleGetQuantityCart();
     });
   });
 };
-
-// filter product:
 
 export const handleGetQuantityCart = () => {
   const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST)) || [];
@@ -107,14 +99,42 @@ export const handleGetQuantityCart = () => {
   ).children[1].innerHTML = `${cartsList.length}`;
 };
 
+export const handleLoadUser = () => {
+  const userLogin = JSON.parse(localStorage.getItem(KEY_USER_LOGIN));
+
+  if (!userLogin || userLogin.length === 0) {
+    document.querySelector(".above-header__login").classList.remove("hidden");
+
+    document
+      .querySelector(".above-header__register")
+      .classList.remove("hidden");
+
+    document.querySelector(".above-header__user-login").classList.add("hidden");
+    document.querySelector(".above-header__btn-logout").classList.add("hidden");
+  } else {
+    document.querySelector(".above-header__login").classList.add("hidden");
+    document.querySelector(".above-header__register").classList.add("hidden");
+
+    document
+      .querySelector(".above-header__user-login")
+      .classList.remove("hidden");
+
+    document
+      .querySelector(".above-header__btn-logout")
+      .classList.remove("hidden");
+
+    document.querySelector(
+      ".above-header__user-login span"
+    ).innerText = `${userLogin?.email}`;
+  }
+};
+
 window.onload = () => {
   renderProducts(products);
   handleAddProductFromProductsToCart();
   handleGetQuantityCart();
+  handleLoadUser();
 
-  // filter:
-
-  // filter category:
   const categoriesFilter = document.querySelectorAll(
     ".filter-products__category-item span"
   );
@@ -178,7 +198,6 @@ window.onload = () => {
     });
   });
 
-  // filter price:
   const priceFilter = document.querySelectorAll(
     ".filter-products__price-item span"
   );
@@ -238,7 +257,6 @@ window.onload = () => {
     });
   });
 
-  // filter color:
   const colorsFilter = document.querySelectorAll(
     ".filter-products__color-item span"
   );
@@ -295,7 +313,6 @@ window.onload = () => {
     });
   });
 
-  // search product:
   const searchButton = document.querySelector(".main-header__btn-search i");
   searchButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -312,4 +329,13 @@ window.onload = () => {
       return;
     }
   });
+
+  if (localStorage.getItem(KEY_USER_LOGIN)) {
+    document
+      .querySelector(".above-header__btn-logout")
+      .addEventListener("click", () => {
+        localStorage.removeItem(KEY_USER_LOGIN);
+        handleLoadUser();
+      });
+  }
 };
