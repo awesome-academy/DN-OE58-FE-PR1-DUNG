@@ -140,4 +140,21 @@ body {
 .main-header a:hover {
   color: #333;
 }
+
+.active {
+  background-color: #4fc286;
+  color: white;
+}
+
+.pagination .pagination-item {
+  color: #888;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #4fc286;
+}
+
+.pagination .pagination-item:hover {
+  color: white;
+  background-color: #4fc286;
+}
 /*# sourceMappingURL=main.css.map */

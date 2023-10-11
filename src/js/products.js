@@ -59,6 +59,10 @@ const renderProducts = (productsList) => {
     document.querySelector(".products__list").innerHTML =
       htmlProductsList.join("");
   }
+
+  let list = document.querySelectorAll(".products__list-item");
+
+  loadItem(list);
 };
 
 const handleAddProductFromProductsToCart = () => {
@@ -128,7 +132,70 @@ export const handleLoadUser = () => {
   }
 };
 
+let thisPage = 1;
+let limit = 6;
+
+const loadItem = (list) => {
+  let beginGetProduct = limit * (thisPage - 1);
+  let endGetProduct = limit * thisPage - 1;
+
+  list.forEach((item, key) => {
+    if (key >= beginGetProduct && key <= endGetProduct) {
+      item.classList.remove("hidden");
+      item.classList.add("block");
+    } else {
+      item.classList.remove("block");
+      item.classList.add("hidden");
+    }
+  });
+  listPage(list);
+};
+
+const listPage = (list) => {
+  let count = Math.ceil(list.length / limit);
+  document.querySelector(".pagination").innerHTML = "";
+
+  if (thisPage != 1) {
+    let prev = document.createElement("li");
+    prev.innerText = "Prev";
+    prev.addEventListener("click", () => {
+      changePage(thisPage - 1, list);
+    });
+    document.querySelector(".pagination").appendChild(prev);
+    prev.classList.add("pagination-item");
+  }
+
+  for (let i = 1; i <= count; i++) {
+    let newPage = document.createElement("li");
+    newPage.classList.add("pagination-item");
+    newPage.innerText = i;
+    if (i == thisPage) {
+      newPage.classList.add("active");
+    }
+    newPage.addEventListener("click", () => {
+      changePage(i, list);
+    });
+    document.querySelector(".pagination").appendChild(newPage);
+  }
+
+  if (thisPage != count) {
+    let next = document.createElement("li");
+    next.innerText = "Next";
+    next.addEventListener("click", () => {
+      changePage(thisPage + 1, list);
+    });
+    document.querySelector(".pagination").appendChild(next);
+    next.classList.add("pagination-item");
+  }
+};
+
+const changePage = (i, list) => {
+  thisPage = i;
+  loadItem(list);
+};
+
 window.onload = () => {
+  getProducts();
   renderProducts(products);
   handleAddProductFromProductsToCart();
   handleGetQuantityCart();

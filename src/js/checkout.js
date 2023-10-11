@@ -179,7 +179,6 @@ window.onload = () => {
       const userInfoLogin = users.find(
         (user) => user.email === userLogin.email
       );
-      console.log(userInfoLogin, "userInfoLogin");
       if (flagValidate) {
         handleAddCartToAPI("http://localhost:3000/carts", {
           name: inputName.value,
@@ -188,13 +187,26 @@ window.onload = () => {
           paymentMethod: inputPaymentMethod.value,
           carts: [...cartsList],
           userId: userInfoLogin.id,
+          date: `${new Date().getDate()}/${
+            new Date().getMonth() + 1
+          }/${new Date().getFullYear()}`,
         });
-        location.href = "./order_success_page.html";
         handleRemoveCartStorage();
+        location.href = "./order_success_page.html";
       }
     } else {
       location.href = "./loginpage.html";
       alert("Bạn cần đăng nhập để thanh toán");
     }
   });
+
+  if (localStorage.getItem(KEY_USER_LOGIN)) {
+    document
+      .querySelector(".above-header__btn-logout")
+      .addEventListener("click", () => {
+        localStorage.removeItem(KEY_USER_LOGIN);
+        handleLoadUser();
+        location.href = "./products_page.html";
+      });
+  }
 };

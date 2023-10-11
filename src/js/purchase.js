@@ -51,9 +51,9 @@ const handleRenderPurchase = (cartsList) => {
     </td>
 
     <td
-      class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d] cursor-pointer hover:underline hover:text-[#4fc286]"
+      class="main-cart__table-cart-row-item main-cart__show-detail-purchase p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d] cursor-pointer hover:underline hover:text-[#4fc286]"
     >
-      Chi tiết
+     <a href="./purchase_detail.html?id=${cart.id}"><span class="hover:text-[#4fc286]">Chi tiết</span></a>
     </td>
   </tr> `;
   });
@@ -61,8 +61,6 @@ const handleRenderPurchase = (cartsList) => {
     purchaseTable.innerHTML = htmlCartsList.join("");
   }
 };
-
-const handleRedirectDetailPurchase = () => {};
 
 window.onload = () => {
   handleLoadUser();
