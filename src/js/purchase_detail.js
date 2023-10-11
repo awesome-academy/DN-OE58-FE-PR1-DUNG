@@ -4,18 +4,22 @@ import { handleLoadUser } from "./products.js";
 const getCartApi = async () => {
   const response = await fetch("http://localhost:3000/carts");
   const cartsList = await response.json();
-  handleRenderPurchaseDetail(cartsList);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+  const itemCart = cartsList.find((cart) => cart.id === Number(id)).carts;
+
+  handleRenderPurchaseDetail(itemCart);
 };
 
-const handleRenderPurchaseDetail = (cartsList) => {
+const handleRenderPurchaseDetail = (itemCart) => {
   const tablePurchaseDetail = document.querySelector(
     ".main-purchase__table-cart-tbody"
   );
-  const htmlPurchaseDetail = cartsList.map((item) => {
-    return item.carts.map((cart) => {
-      const imgURL = "../." + `${cart.imgURL}`;
-      const priceProduct = cart.originalPrice * (1 - cart.percentSale);
-      return `<tr class="main-purchase__table-cart-item">
+  const htmlPurchaseDetail = itemCart.map((cart) => {
+    const imgURL = "../." + `${cart.imgURL}`;
+    const priceProduct = cart.originalPrice * (1 - cart.percentSale);
+    return `<tr class="main-purchase__table-cart-item">
             <td
               class="main-purchase__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0]"
             >
@@ -61,10 +65,9 @@ const handleRenderPurchaseDetail = (cartsList) => {
               <i class="fa-solid fa-trash-can cursor-pointer"></i>
             </td>
           </tr>`;
-    });
   });
 
-  tablePurchaseDetail.innerHTML = htmlPurchaseDetail.join("");
+  tablePurchaseDetail.innerHTML = htmlPurchaseDetail?.join("");
 };
 
 const handleShoppingContinue = () => {
