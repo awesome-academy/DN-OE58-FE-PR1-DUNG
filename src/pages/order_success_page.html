@@ -213,6 +213,26 @@
         </div>
         <!--end breadcrumb -->
 
+        <!-- process bar -->
+        <div
+          class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 relative mb-16"
+        >
+          <i
+            class="fa-solid fa-cart-shopping text-2xl absolute top-[-35px] left-[8.5%]"
+          ></i>
+          <i
+            class="fa-solid fa-cash-register text-2xl absolute top-[-35px] left-[58.5%]"
+          ></i>
+          <i
+            class="fa-solid fa-clipboard-check text-2xl absolute top-[-35px] left-[98.5%]"
+          ></i>
+          <div
+            class="bg-green-600 h-2.5 rounded-full dark:bg-green-500"
+            style="width: 100%"
+          ></div>
+        </div>
+        <!-- end process bar -->
+
         <div
           class="main-order-success__content flex flex-col md:flex-row justify-center gap-[50px]"
         >
@@ -246,7 +266,7 @@
               Mua sắm
             </button>
             <button
-              class="continue-shopping__btn text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white uppercase hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
+              class="btn-redirect-purchase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white uppercase hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
             >
               Xem lịch sử mua hàng
             </button>
@@ -506,4 +526,5 @@
     </footer>
     <!-- end footer -->
   </body>
+  <script type="module" src="../js/order_success.js"></script>
 </html>

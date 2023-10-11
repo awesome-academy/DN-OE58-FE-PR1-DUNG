@@ -8,21 +8,17 @@ export const handleRenderDetailProduct = (product) => {
   const imgURL = "../." + `${product.imgURL}`;
   const priceProduct = product.originalPrice * (1 - product.percentSale);
 
-  const htmlProduct = `<!-- breadcrumb -->
-    <div class="breadcum-detail-product pt-4 pb-16">
+  const htmlProduct = `<div class="breadcum-detail-product pt-4 pb-16">
       <a href="./homepage.html">Home</a>
       <span>/</span>
       <a href="./detail_product_page.html" class="text-[#4fc286]"
         >${product.productName}</a
       >
     </div>
-    <!--end breadcrumb -->
   
-    <!-- detail-product -->
     <div
       class="detail-product flex flex-col justify-center items-center md:flex-row md:justify-between md:items-start gap-[20px]"
     >
-      <!-- img-grp -->
       <div class="detail-product__img-grp w-full md:w-[45%]">
         <img src="${imgURL}" alt="product_img" />
         <div
@@ -55,11 +51,8 @@ export const handleRenderDetailProduct = (product) => {
           />
         </div>
       </div>
-      <!-- end img-grp -->
   
-      <!-- information -->
       <div class="detail-product__information w-full md:w-[55%]">
-        <!-- basic -->
         <div
           class="detail-product__basic-info border-solid border-b-2 border-[#efefef] py-4"
         >
@@ -82,9 +75,7 @@ export const handleRenderDetailProduct = (product) => {
             >
           </p>
         </div>
-        <!-- end basic -->
   
-        <!-- desc -->
         <div
           class="detail-product__desc border-solid border-b-2 border-[#efefef] py-4"
         >
@@ -92,9 +83,7 @@ export const handleRenderDetailProduct = (product) => {
             ${product.desc}
           </p>
         </div>
-        <!-- end desc -->
   
-        <!-- quantity -->
         <div
           class="detail-product__quantity border-solid border-b-2 border-[#efefef] py-4 flex items-center gap-[30px]"
         >
@@ -111,8 +100,8 @@ export const handleRenderDetailProduct = (product) => {
             <input
               class="detail-product__quantity w-[50px] h-[30px] border-solid border-2 border-[#efefef] text-center" name="quantity"
               value="1"
+              disabled
             />
-  
             <button
               class="detail-product__btn-increase w-[30px] h-[30px] border-solid border-2 border-[#efefef] flex justify-center items-center"
             >
@@ -120,9 +109,7 @@ export const handleRenderDetailProduct = (product) => {
             </button>
           </div>
         </div>
-        <!-- end quantity -->
   
-        <!-- grp-buy-btn -->
         <div class="detail-product__btn-buy-grp my-4">
           <button
             class="detail-product__btn-buy py-3 px-8 rounded-full border-solid border-2 border-[#4fc286] hover:bg-[#4fc286] uppercase hover:text-white"
@@ -137,13 +124,9 @@ export const handleRenderDetailProduct = (product) => {
             class="fa-solid fa-heart p-3 border-solid border-2 border-[#efefef] rounded-full"
           ></i>
         </div>
-        <!-- end grp-buy-btn -->
       </div>
-      <!-- end information -->
     </div>
-    <!-- end detail-product -->
   
-    <!-- description-product-box -->
     <div class="description-product-box mt-16">
       <div class="description-product-box__title flex">
         <p
@@ -212,19 +195,29 @@ window.onload = () => {
 
   handleRenderDetailProduct(product);
 
-  let quantity = parseInt(
-    document.querySelector("input[name='quantity']").value
-  );
   const btnIncrease = document.querySelector(".detail-product__btn-increase");
   btnIncrease.addEventListener("click", () => {
-    quantity = isNaN(quantity) ? 1 : quantity;
-    quantity++;
+    let quantity = parseInt(
+      document.querySelector("input[name='quantity']").value
+    );
+    if (quantity >= 10) {
+      return;
+    } else {
+      quantity += 1;
+    }
     document.querySelector("input[name='quantity']").value = quantity;
   });
+
   const btnDecrease = document.querySelector(".detail-product__btn-decrease");
   btnDecrease.addEventListener("click", () => {
-    quantity = isNaN(quantity) ? 1 : quantity;
-    quantity--;
+    let quantity = parseInt(
+      document.querySelector("input[name='quantity']").value
+    );
+    if (quantity <= 1) {
+      return;
+    } else {
+      quantity -= 1;
+    }
     document.querySelector("input[name='quantity']").value = quantity;
   });
 

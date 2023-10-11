@@ -3,7 +3,7 @@ const getUsers = async () => {
   const data = await response.json();
   return data;
 };
-const users = await getUsers();
+export const users = await getUsers();
 
 const inputName = document.querySelector(
   ".box-register__form input[name='name']"

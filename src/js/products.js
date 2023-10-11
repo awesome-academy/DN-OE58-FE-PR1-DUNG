@@ -6,9 +6,10 @@ const getProducts = async () => {
   return data;
 };
 export const products = await getProducts();
+console.log(products);
 
-const renderProducts = (products) => {
-  const htmlProductsList = products.map((product) => {
+const renderProducts = (productsList) => {
+  const htmlProductsList = productsList.map((product) => {
     const imgURL = product.imgURL.slice(1);
     return `<div
       class="products__list-item relative flex flex-col justify-center items-center w-full border-solid border-2 border-[#e9e9e9] cursor-pointer
@@ -84,8 +85,6 @@ const handleAddProductFromProductsToCart = () => {
           }
         }
         localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
-      } else {
-        location.href = "./detail_product_page.html";
       }
       handleGetQuantityCart();
     });
@@ -336,6 +335,7 @@ window.onload = () => {
       .addEventListener("click", () => {
         localStorage.removeItem(KEY_USER_LOGIN);
         handleLoadUser();
+        location.href = "./products_page.html";
       });
   }
 };
