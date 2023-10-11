@@ -1,9 +1,8 @@
-import { KEY_CART_LIST } from "./constants.js";
-import { handleGetQuantityCart } from "./products.js";
+import { KEY_CART_LIST, KEY_USER_LOGIN } from "./constants.js";
+import { handleGetQuantityCart, handleLoadUser } from "./products.js";
 
 const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST));
 
-// render Product to Carts
 const handleRenderCart = (carts) => {
   if (carts && carts.length != 0) {
     const htmlListCart = carts.map((item) => {
@@ -64,7 +63,6 @@ const handleRenderCart = (carts) => {
   }
 };
 
-// remove product
 const handleRemoveProduct = (carts) => {
   const productsList = document.querySelectorAll(".main-cart__table-cart-item");
 
@@ -75,7 +73,6 @@ const handleRemoveProduct = (carts) => {
       );
       localStorage.setItem(KEY_CART_LIST, JSON.stringify(cartsUpdate));
       const cartsList = JSON.parse(localStorage.getItem(KEY_CART_LIST));
-      console.log(cartsList, "cart update");
       handleRenderCart(cartsList);
       handleGetQuantityCart();
       handleRemoveProduct(cartsList);
@@ -84,15 +81,13 @@ const handleRemoveProduct = (carts) => {
   });
 };
 
-// count total Bill:
 const handleCountBill = (carts) => {
   let totalBill = 0;
   carts.forEach((item) => {
-    totalBill += item.originalPrice * (1 - item.percentSale);
+    totalBill += item.originalPrice * (1 - item.percentSale) * item.quantity;
   });
   let vatTax = totalBill * 0.1;
   let totalMoneyPay = totalBill + vatTax;
-  // console.log({ totalBill, vatTax, totalMoneyPay });
 
   document.querySelector(
     ".main-cart__table-payment-item"
@@ -110,8 +105,8 @@ window.onload = () => {
   handleGetQuantityCart();
   handleRemoveProduct(cartsList);
   handleCountBill(cartsList);
+  handleLoadUser();
 
-  // cancel Cart:
   document
     .querySelector(".main-cart__btn-cancel")
     .addEventListener("click", () => {
@@ -121,13 +116,24 @@ window.onload = () => {
       location.href = "./products_page.html";
     });
 
-  // continue shopping:
   document
     .querySelector(".main-cart__btn-continue")
     .addEventListener("click", () => {
       location.href = "./products_page.html";
     });
 
-  // redirect to checkout_page:
-  // document.querySelector(".");
+  document
+    .querySelector(".main-cart__btn-payment")
+    .addEventListener("click", () => {
+      location.href = "./checkout_page.html";
+    });
+
+  if (localStorage.getItem(KEY_USER_LOGIN)) {
+    document
+      .querySelector(".above-header__btn-logout")
+      .addEventListener("click", () => {
+        localStorage.removeItem(KEY_USER_LOGIN);
+        handleLoadUser();
+      });
+  }
 };

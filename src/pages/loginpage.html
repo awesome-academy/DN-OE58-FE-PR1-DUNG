@@ -61,6 +61,17 @@
           <div
             class="above-header__right flex flex-col sm:flex-row sm:justify-center sm:items-center gap-[10px] lg:gap-[30px]"
           >
+            <div class="above-header__user-login hidden">
+              <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
+              <span class="above-header__user-name text-white"></span>
+            </div>
+
+            <div class="above-header__btn-logout hidden">
+              <i
+                class="fa-solid fa-arrow-right-from-bracket text-white opacity-50 me-[5px] cursor-pointer"
+              ></i>
+            </div>
+
             <div class="above-header__login cursor-pointer">
               <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
               <a class="text-white opacity-50" href="./loginpage.html"
@@ -208,7 +219,7 @@
             <p class="box-login__title uppercase text-[#4fc286] font-[700]">
               Thông tin cá nhân
             </p>
-            <form class="box-login__form mb-16">
+            <div class="box-login__form mb-16">
               <div class="box-login__email flex flex-col my-4">
                 <label for="email">Email của bạn là</label>
                 <input
@@ -216,6 +227,7 @@
                   class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                   name="email"
                 />
+                <span class="text-red-600"></span>
               </div>
 
               <div class="box-login__password flex flex-col mb-4">
@@ -225,9 +237,12 @@
                   class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                   name="email"
                 />
+                <span class="text-red-600"></span>
               </div>
 
-              <div class="box-login__remember-user-grp flex gap-[30px] mt-8">
+              <div
+                class="box-login__remember-user-grp flex gap-[30px] mt-8 mb-8"
+              >
                 <div class="box-login__remember-user">
                   <input type="checkbox" />
                   <span class="font-[600] text-sm">Ghi nhớ tài khoản</span>
@@ -241,12 +256,11 @@
               </div>
 
               <button
-                type="submit"
-                class="text-white uppercase bg-[#4fc286] rounded-full px-6 py-2 mt-8"
+                class="text-white uppercase bg-[#4fc286] rounded-full px-6 py-2"
               >
                 Đăng nhập
               </button>
-            </form>
+            </div>
           </div>
           <!--end box-login -->
 
@@ -521,4 +535,5 @@
     </footer>
     <!-- end footer -->
   </body>
+  <script type="module" src="../js/login.js"></script>
 </html>

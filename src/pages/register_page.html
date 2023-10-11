@@ -61,6 +61,17 @@
           <div
             class="above-header__right flex flex-col sm:flex-row sm:justify-center sm:items-center gap-[10px] lg:gap-[30px]"
           >
+            <div class="above-header__user-login hidden">
+              <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
+              <span class="above-header__user-name text-white"></span>
+            </div>
+
+            <div class="above-header__btn-logout hidden">
+              <i
+                class="fa-solid fa-arrow-right-from-bracket text-white opacity-50 me-[5px] cursor-pointer"
+              ></i>
+            </div>
+
             <div class="above-header__login cursor-pointer">
               <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
               <a class="text-white opacity-50" href="./loginpage.html"
@@ -210,7 +221,7 @@
             >
               Thông tin cá nhân
             </p>
-            <form class="box-register__form mb-16">
+            <form class="box-register__form mb-16" id="form-register">
               <!-- box1 -->
               <div
                 class="box-register__form-box1 flex flex-col sm:flex-row flex-wrap gap-[30px]"
@@ -224,6 +235,7 @@
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                     name="name"
                   />
+                  <span class="text-red-600" id="error-name"></span>
                 </div>
 
                 <div
@@ -235,6 +247,7 @@
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                     name="phone"
                   />
+                  <span class="text-red-600" id="error-phone"></span>
                 </div>
 
                 <div
@@ -246,17 +259,19 @@
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                     name="email"
                   />
+                  <span class="text-red-600" id="error-email"></span>
                 </div>
 
                 <div
-                  class="box-register__website flex flex-col py-2 w-full sm:w-[45%]"
+                  class="box-register__address flex flex-col py-2 w-full sm:w-[45%]"
                 >
-                  <label for="website">Website của bạn</label>
+                  <label for="address">Địa chỉ</label>
                   <input
                     type="text"
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                    name="website"
+                    name="address"
                   />
+                  <span class="text-red-600" id="error-address"></span>
                 </div>
               </div>
 
@@ -270,7 +285,6 @@
                   >
                 </div>
               </div>
-
               <!-- box2 -->
               <p
                 class="box-register__title-2 uppercase text-[#4fc286] font-[700]"
@@ -289,6 +303,7 @@
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                     name="password"
                   />
+                  <span class="text-red-600" id="error-password"></span>
                 </div>
 
                 <div
@@ -300,23 +315,22 @@
                     class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                     name="confirm-password"
                   />
+                  <span class="text-red-600" id="error-confirm-password"></span>
                 </div>
               </div>
 
               <!-- grp-btn -->
-              <div class="box-register__btn-grp">
-                <button
-                  class="box-register__btn-undo uppercase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8 me-4"
-                >
-                  quay lại
-                </button>
-                <button
-                  type="submit"
-                  class="box-register__btn-register uppercase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
-                >
-                  Đăng ký
-                </button>
-              </div>
+              <button
+                class="box-register__btn-undo uppercase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8 me-4"
+              >
+                quay lại
+              </button>
+              <button
+                type="submit"
+                class="box-register__btn-register uppercase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
+              >
+                Đăng ký
+              </button>
             </form>
           </div>
           <!--end box-register -->
@@ -574,4 +588,5 @@
     </footer>
     <!-- end footer -->
   </body>
+  <script type="module" src="../js/register.js"></script>
 </html>

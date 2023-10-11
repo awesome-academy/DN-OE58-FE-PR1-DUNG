@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login_page</title>
+    <title>purchase_page</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
@@ -61,6 +61,17 @@
           <div
             class="above-header__right flex flex-col sm:flex-row sm:justify-center sm:items-center gap-[10px] lg:gap-[30px]"
           >
+            <div class="above-header__user-login hidden">
+              <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
+              <span class="above-header__user-name text-white"></span>
+            </div>
+
+            <div class="above-header__btn-logout hidden">
+              <i
+                class="fa-solid fa-arrow-right-from-bracket text-white opacity-50 me-[5px] cursor-pointer"
+              ></i>
+            </div>
+
             <div class="above-header__login cursor-pointer">
               <i class="fa-solid fa-user text-white opacity-50 me-[5px]"></i>
               <a class="text-white opacity-50" href="./loginpage.html"
@@ -190,86 +201,114 @@
     </header>
     <!-- End Header -->
 
-    <article class="main-login-wrapper flex justify-center items-center">
-      <section class="main-login max-w-[1240px] w-full p-12">
+    <!-- main-purchase -->
+    <article class="main-purchase-wrapper flex justify-center items-center">
+      <section class="main-purchase max-w-[1240px] w-full p-4">
         <!-- breadcrumb -->
-        <div class="breadcum-login pt-4 pb-12">
+        <div class="breadcum-purchase-page pt-4 pb-12">
           <a href="./homepage.html">Home</a>
           <span>/</span>
-          <a href="./loginpage.html" class="text-[#4fc286]">Đăng nhập</a>
+          <a href="./purchase_page.html" class="text-[#4fc286]">Purchase</a>
         </div>
         <!--end breadcrumb -->
 
-        <div
-          class="main-login__content flex flex-col md:flex-row justify-center gap-[50px]"
+        <p
+          class="main-purchase__title uppercase text-[#4fc286] font-[700] pb-12"
         >
-          <!-- box-login -->
-          <div class="box-login w-full md:w-[50%]">
-            <p class="box-login__title uppercase text-[#4fc286] font-[700]">
-              Thông tin cá nhân
-            </p>
-            <form class="box-login__form mb-16">
-              <div class="box-login__email flex flex-col my-4">
-                <label for="email">Email của bạn là</label>
-                <input
-                  type="text"
-                  class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                  name="email"
-                />
-              </div>
+          Lịch sử đơn hàng
+        </p>
 
-              <div class="box-login__password flex flex-col mb-4">
-                <label for="email">Mật khẩu</label>
-                <input
-                  type="text"
-                  class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                  name="email"
-                />
-              </div>
+        <!-- table-purchase -->
+        <div class="main-purchase__table-purchase-grp mb-16">
+          <table
+            class="main-purchase__table-purchase border-solid border-[1px] border-[#e0e0e0] border-collapse w-full text-center"
+          >
+            <thead class="main-purchase__table-purchase-thead text-white">
+              <tr>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[#e0e0e0] uppercase font-[200] w-[10%] py-4"
+                >
+                  STT
+                </th>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[25%] py-4"
+                >
+                  Khách hàng
+                </th>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[25%] py-4"
+                >
+                  Ngày mua
+                </th>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[10%] py-4"
+                >
+                  Số SP
+                </th>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[15%] py-4"
+                >
+                  Tổng tiền
+                </th>
+                <th
+                  class="main-purchase__table-purchase-thead-item bg-[#4fc286] uppercase font-[200] w-[15%] py-4"
+                >
+                  Chi tiết
+                </th>
+              </tr>
+            </thead>
 
-              <div class="box-login__remember-user-grp flex gap-[30px] mt-8">
-                <div class="box-login__remember-user">
-                  <input type="checkbox" />
-                  <span class="font-[600] text-sm">Ghi nhớ tài khoản</span>
-                </div>
+            <tbody class="main-purchase__table-purchase-tbody text-[#333]">
+              <tr class="main-cart__table-cart-item" productId="${item.id}">
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0]"
+                >
+                  01
+                </td>
 
-                <div class="box-login__forget-user">
-                  <span class="text-sm italic underline text-[#333] opacity-70"
-                    >Bạn đã quên tài khoản?</span
-                  >
-                </div>
-              </div>
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] text-[#4fc286] uppercase font-[500]"
+                >
+                  Nguyễn Văn A
+                </td>
 
-              <button
-                type="submit"
-                class="text-white uppercase bg-[#4fc286] rounded-full px-6 py-2 mt-8"
-              >
-                Đăng nhập
-              </button>
-            </form>
-          </div>
-          <!--end box-login -->
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
+                >
+                  1/1/2001
+                </td>
 
-          <!-- register-link -->
-          <div class="register-link w-full md:w-[50%]">
-            <p class="register-link__title uppercase text-[#4fc286] font-[700]">
-              Bạn chưa có tài khoản?
-            </p>
-            <p class="register-link__desc text-justify my-4">
-              Đăng ký tài khoản ngay để có thể mua hàng nhanh chóng và dễ dàng
-              hơn! Ngoài ra có rất nhiều chính sách và ưu đãi cho các thành viên
-              greenshop
-            </p>
-            <button
-              class="register-link__btn text-white uppercase bg-[#4fc286] rounded-full px-6 py-2 mt-8"
-            >
-              Đăng ký
-            </button>
-          </div>
-          <!-- end register-link -->
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
+                >
+                  <input
+                    readonly
+                    disabled
+                    type="text"
+                    class="p-2 w-[50px] text-center border-solid border-[1px] border-[#e0e0e0]"
+                    value="3"
+                  />
+                </td>
+
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d]"
+                >
+                  300000 đ
+                </td>
+
+                <td
+                  class="main-cart__table-cart-row-item p-4 border-solid border-[1px] border-[#e0e0e0] font-[500] text-[#8e8d8d] cursor-pointer hover:underline hover:text-[#4fc286]"
+                >
+                  Chi tiết
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <!-- end table-purchase -->
       </section>
     </article>
+    <!-- end main-purchase -->
 
     <!-- footer -->
     <footer class="footer-wrapper bg-slate-900">
