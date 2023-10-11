@@ -228,36 +228,7 @@
                   class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                   name="name"
                 />
-              </div>
-
-              <div class="box-checkout__address flex flex-col mb-4">
-                <select
-                  class="form-select form-select-sm mb-3 border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                  id="city"
-                  aria-label=".form-select-sm"
-                >
-                  <option value="" selected>Chọn tỉnh thành</option>
-                </select>
-              </div>
-
-              <div class="box-checkout__address flex flex-col mb-4">
-                <select
-                  class="form-select form-select-sm mb-3 border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                  id="district"
-                  aria-label=".form-select-sm"
-                >
-                  <option value="" selected>Chọn quận huyện</option>
-                </select>
-              </div>
-
-              <div class="box-checkout__address flex flex-col mb-4">
-                <select
-                  class="form-select form-select-sm border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
-                  id="ward"
-                  aria-label=".form-select-sm"
-                >
-                  <option value="" selected>Chọn phường xã</option>
-                </select>
+                <span id="error-name" class="text-red-600"></span>
               </div>
 
               <div class="box-checkout__address flex flex-col mb-4">
@@ -267,15 +238,17 @@
                   class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                   name="address"
                 />
+                <span id="error-address" class="text-red-600"></span>
               </div>
 
               <div class="box-checkout__phone flex flex-col mb-4">
                 <label for="phone">Số ĐT</label>
                 <input
-                  type="number"
+                  type="text"
                   class="border-2 border-[#ededed] w-full max-w-[500px] h-[40px]"
                   name="phone"
                 />
+                <span id="error-phone" class="text-red-600"></span>
               </div>
 
               <div class="box-checkout__payment-method flex flex-col mb-4">
@@ -381,14 +354,8 @@
               </table>
             </div>
             <!-- end table-payment -->
-
-            <button
-              class="bill__btn-fix uppercase border-solid border-2 border-[#4fc286] text-[#4fc286] hover:text-white hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
-            >
-              Quay lại
-            </button>
+            <!-- end bill -->
           </div>
-          <!-- end bill -->
         </div>
       </section>
     </article>
@@ -644,53 +611,4 @@
     <!-- end footer -->
   </body>
   <script type="module" src="../js/checkout.js"></script>
-  <!-- script 63 tỉnh thành -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-  <script>
-    var citis = document.getElementById("city");
-    var districts = document.getElementById("district");
-    var wards = document.getElementById("ward");
-    var Parameter = {
-      url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
-      method: "GET",
-      responseType: "application/json",
-    };
-    var promise = axios(Parameter);
-    promise.then(function (result) {
-      renderCity(result.data);
-    });
-
-    function renderCity(data) {
-      for (const x of data) {
-        citis.options[citis.options.length] = new Option(x.Name, x.Id);
-      }
-      citis.onchange = function () {
-        district.length = 1;
-        ward.length = 1;
-        if (this.value != "") {
-          const result = data.filter((n) => n.Id === this.value);
-
-          for (const k of result[0].Districts) {
-            district.options[district.options.length] = new Option(
-              k.Name,
-              k.Id
-            );
-          }
-        }
-      };
-      district.onchange = function () {
-        ward.length = 1;
-        const dataCity = data.filter((n) => n.Id === citis.value);
-        if (this.value != "") {
-          const dataWards = dataCity[0].Districts.filter(
-            (n) => n.Id === this.value
-          )[0].Wards;
-
-          for (const w of dataWards) {
-            wards.options[wards.options.length] = new Option(w.Name, w.Id);
-          }
-        }
-      };
-    }
-  </script>
 </html>
