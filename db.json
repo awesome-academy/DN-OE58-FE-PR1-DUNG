@@ -451,6 +451,47 @@
       "userId": 1,
       "date": "11/10/2023",
       "id": 3
+    },
+    {
+      "name": "Nguyễn Văn A",
+      "address": "Đà Nẵng",
+      "phone": "0988122222",
+      "paymentMethod": "COD",
+      "carts": [
+        {
+          "id": 3,
+          "productName": "Cây đa búp đỏ",
+          "category": "Cây chậu treo",
+          "color": "Xanh cây",
+          "imgURL": "./src/assets/imgs/product/da_bup_do.png",
+          "originalPrice": 300000,
+          "percentSale": 0.5,
+          "rate": {
+            "count": 100,
+            "average": 4.5
+          },
+          "createAt": 1696490186164,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "productName": "Cây danh dự",
+          "category": "Cây chậu treo",
+          "color": "Xanh cây",
+          "imgURL": "./src/assets/imgs/product/danh_du_1.png",
+          "originalPrice": 300000,
+          "percentSale": 0.25,
+          "rate": {
+            "count": 100,
+            "average": 4.5
+          },
+          "createAt": 1696490186164,
+          "quantity": 1
+        }
+      ],
+      "userId": 1,
+      "date": "12/10/2023",
+      "id": 4
     }
   ],
   "blogs": []
