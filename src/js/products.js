@@ -127,6 +127,17 @@ export const handleLoadUser = () => {
   }
 };
 
+const handleSetPagination = () => {
+  let thisPage = 1;
+  let limit = 6;
+  let list = document.querySelectorAll(".page-item");
+
+  list.forEach((item, key) => {
+    if (key >= beginGet && key <= endGet) {
+    }
+  });
+};
+
 window.onload = () => {
   renderProducts(products);
   handleAddProductFromProductsToCart();
