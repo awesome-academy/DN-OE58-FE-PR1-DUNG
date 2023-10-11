@@ -169,32 +169,4 @@ window.onload = () => {
         location.href = "./products_page.html";
       });
   }
-
-  formCheckout.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const userLogin = JSON.parse(localStorage.getItem(KEY_USER_LOGIN));
-    let flagValidate = handleValidate();
-    if (userLogin) {
-      const userInfoLogin = users.find(
-        (user) => user.email === userLogin.email
-      );
-      console.log(userInfoLogin, "userInfoLogin");
-      if (flagValidate) {
-        handleAddCartToAPI("http://localhost:3000/carts", {
-          name: inputName.value,
-          address: inputAddress.value,
-          phone: inputPhone.value,
-          paymentMethod: inputPaymentMethod.value,
-          carts: [...cartsList],
-          userId: userInfoLogin.id,
-        });
-        location.href = "./order_success_page.html";
-        handleRemoveCartStorage();
-      }
-    } else {
-      location.href = "./loginpage.html";
-      alert("Bạn cần đăng nhập để thanh toán");
-    }
-  });
 };

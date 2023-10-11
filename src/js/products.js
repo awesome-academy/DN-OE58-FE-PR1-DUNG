@@ -6,7 +6,6 @@ const getProducts = async () => {
   return data;
 };
 export const products = await getProducts();
-console.log(products);
 
 const renderProducts = (productsList) => {
   const htmlProductsList = productsList.map((product) => {
