@@ -83,9 +83,11 @@ const handleRemoveProduct = (carts) => {
 
 const handleCountBill = (carts) => {
   let totalBill = 0;
-  carts.forEach((item) => {
-    totalBill += item.originalPrice * (1 - item.percentSale) * item.quantity;
-  });
+  if (cartsList) {
+    carts.forEach((item) => {
+      totalBill += item.originalPrice * (1 - item.percentSale) * item.quantity;
+    });
+  }
   let vatTax = totalBill * 0.1;
   let totalMoneyPay = totalBill + vatTax;
 
