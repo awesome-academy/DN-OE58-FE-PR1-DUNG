@@ -100,6 +100,7 @@ export const handleRenderDetailProduct = (product) => {
             <input
               class="detail-product__quantity w-[50px] h-[30px] border-solid border-2 border-[#efefef] text-center" name="quantity"
               value="1"
+              disabled
             />
             <button
               class="detail-product__btn-increase w-[30px] h-[30px] border-solid border-2 border-[#efefef] flex justify-center items-center"
@@ -194,19 +195,29 @@ window.onload = () => {
 
   handleRenderDetailProduct(product);
 
-  let quantity = parseInt(
-    document.querySelector("input[name='quantity']").value
-  );
   const btnIncrease = document.querySelector(".detail-product__btn-increase");
   btnIncrease.addEventListener("click", () => {
-    quantity = isNaN(quantity) ? 1 : quantity;
-    quantity++;
+    let quantity = parseInt(
+      document.querySelector("input[name='quantity']").value
+    );
+    if (quantity >= 10) {
+      return;
+    } else {
+      quantity += 1;
+    }
     document.querySelector("input[name='quantity']").value = quantity;
   });
+
   const btnDecrease = document.querySelector(".detail-product__btn-decrease");
   btnDecrease.addEventListener("click", () => {
-    quantity = isNaN(quantity) ? 1 : quantity;
-    quantity--;
+    let quantity = parseInt(
+      document.querySelector("input[name='quantity']").value
+    );
+    if (quantity <= 1) {
+      return;
+    } else {
+      quantity -= 1;
+    }
     document.querySelector("input[name='quantity']").value = quantity;
   });
 
