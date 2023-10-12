@@ -337,6 +337,7 @@ window.onload = () => {
       .addEventListener("click", () => {
         localStorage.removeItem(KEY_USER_LOGIN);
         handleLoadUser();
+        location.href = "./products_page.html";
       });
   }
 };
