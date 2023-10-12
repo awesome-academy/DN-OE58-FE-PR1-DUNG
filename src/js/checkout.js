@@ -130,12 +130,43 @@ window.onload = () => {
   handleGetQuantityCart();
   handleLoadUser();
 
+  formCheckout.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const userLogin = JSON.parse(localStorage.getItem(KEY_USER_LOGIN));
+    let flagValidate = handleValidate();
+    if (userLogin) {
+      const userInfoLogin = users.find(
+        (user) => user.email === userLogin.email
+      );
+      if (flagValidate) {
+        handleAddCartToAPI("http://localhost:3000/carts", {
+          name: inputName.value,
+          address: inputAddress.value,
+          phone: inputPhone.value,
+          paymentMethod: inputPaymentMethod.value,
+          carts: [...cartsList],
+          userId: userInfoLogin.id,
+          date: `${new Date().getDate()}/${
+            new Date().getMonth() + 1
+          }/${new Date().getFullYear()}`,
+        });
+        handleRemoveCartStorage();
+        location.href = "./order_success_page.html";
+      }
+    } else {
+      location.href = "./loginpage.html";
+      alert("Bạn cần đăng nhập để thanh toán");
+    }
+  });
+
   if (localStorage.getItem(KEY_USER_LOGIN)) {
     document
       .querySelector(".above-header__btn-logout")
       .addEventListener("click", () => {
         localStorage.removeItem(KEY_USER_LOGIN);
         handleLoadUser();
+        location.href = "./products_page.html";
       });
   }
 

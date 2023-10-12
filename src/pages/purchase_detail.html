@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>order_success_page</title>
+    <title>purchase_detail_page</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
@@ -201,60 +201,82 @@
     </header>
     <!-- End Header -->
 
-    <article
-      class="main-order-success-wrapper flex justify-center items-center"
-    >
-      <section class="main-order-success max-w-[1240px] w-full p-12">
+    <!-- main-purchase -->
+    <article class="main-purchase-wrapper flex justify-center items-center">
+      <section class="main-purchase max-w-[1240px] w-full p-4">
         <!-- breadcrumb -->
-        <div class="breadcum-order-success pt-4 pb-12">
+        <div class="breadcum-cart-page pt-4 pb-12">
           <a href="./homepage.html">Home</a>
           <span>/</span>
-          <a href="./order_success_page.html" class="text-[#4fc286]">Success</a>
+          <a href="./purchase_detail.html" class="text-[#4fc286]"
+            >Chi tiết lịch sử đơn hàng</a
+          >
         </div>
         <!--end breadcrumb -->
 
-        <div
-          class="main-order-success__content flex flex-col md:flex-row justify-center gap-[50px]"
+        <p
+          class="main-purchase__title uppercase text-[#4fc286] font-[700] pb-12"
         >
-          <!-- box-order-success -->
-          <div class="box-order-success w-full md:w-[50%]">
-            <div class="box-order-success__form mb-16">
-              <img
-                src="https://i.etsystatic.com/21304333/r/il/ac9a89/2920228104/il_570xN.2920228104_d86t.jpg"
-                alt="success_img"
-              />
-            </div>
-          </div>
-          <!--end box-order-success -->
+          Chi tiết lịch sử đơn hàng
+        </p>
 
-          <!-- continue-shopping -->
-          <div class="continue-shopping w-full md:w-[50%]">
-            <p
-              class="continue-shopping__title uppercase text-[#4fc286] font-[700]"
-            >
-              Bạn muốn tiếp tục mua sắm?
-            </p>
-            <p class="continue-shopping__desc text-justify my-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-              ex voluptatum mollitia minus nemo sit animi dolorum fuga. Illum
-              voluptatibus possimus labore sapiente alias nostrum enim non
-              molestiae, dignissimos fugiat.
-            </p>
-            <button
-              class="continue-shopping__btn text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white uppercase hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8 me-[20px]"
-            >
-              Mua sắm
-            </button>
-            <button
-              class="btn-redirect-purchase text-[#4fc286] border-solid border-2 border-[#4fc286] hover:text-white uppercase hover:bg-[#4fc286] rounded-full px-6 py-2 mt-8"
-            >
-              Xem lịch sử mua hàng
-            </button>
-          </div>
-          <!-- end continue-shopping -->
+        <!-- table-cart -->
+        <div class="main-purchase__table-cart-grp">
+          <table
+            class="main-purchase__table-cart border-solid border-[1px] border-[#e0e0e0] border-collapse w-full text-center"
+          >
+            <thead class="main-purchase__table-cart-thead text-white">
+              <tr>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[#e0e0e0] uppercase font-[200] w-[20%] py-4"
+                >
+                  Hình ảnh
+                </th>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[25%] py-4"
+                >
+                  Tên sản phẩm
+                </th>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[15%] py-4"
+                >
+                  Đơn giá
+                </th>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[15%] py-4"
+                >
+                  Số lượng
+                </th>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] border-solid border-e-[1px] border-[[#e0e0e0] uppercase font-[200] w-[15%] py-4"
+                >
+                  Thành tiền
+                </th>
+                <th
+                  class="main-purchase__table-cart-thead-item bg-[#4fc286] uppercase font-[200] w-[10%] py-4"
+                >
+                  Xóa
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="main-purchase__table-cart-tbody text-[#333]"></tbody>
+          </table>
         </div>
+        <!-- end table-cart -->
+
+        <!-- btn-grp -->
+        <div class="main-purchase__btn-grp flex justify-end gap-[20px] my-12">
+          <button
+            class="main-purchase__btn-continue rounded-full border-solid border-2 border-[#4fc286] text-[#4fc286] px-6 py-3 hover:bg-[#4fc286] hover:text-white uppercase"
+          >
+            Tiếp tục mua
+          </button>
+        </div>
+        <!-- end btn-grp -->
       </section>
     </article>
+    <!-- end main-purchase -->
 
     <!-- footer -->
     <footer class="footer-wrapper bg-slate-900">
@@ -506,5 +528,5 @@
     </footer>
     <!-- end footer -->
   </body>
-  <script type="module" src="../js/order_success.js"></script>
+  <script type="module" src="../js/purchase_detail.js"></script>
 </html>
