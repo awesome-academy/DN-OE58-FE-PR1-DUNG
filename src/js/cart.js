@@ -38,6 +38,7 @@ const handleRenderCart = (carts) => {
           type="text"
           class="p-2 w-[50px] text-center border-solid border-[1px] border-[#e0e0e0]"
           value="${item.quantity}"
+          disabled
         />
       </td>
   
@@ -127,7 +128,12 @@ window.onload = () => {
   document
     .querySelector(".main-cart__btn-payment")
     .addEventListener("click", () => {
-      location.href = "./checkout_page.html";
+      if (!cartsList || cartsList.length === 0) {
+        alert("Vui lòng thêm sản phẩm để tiếp tục");
+        location.href = "./products_page.html";
+      } else {
+        location.href = "./checkout_page.html";
+      }
     });
 
   if (localStorage.getItem(KEY_USER_LOGIN)) {

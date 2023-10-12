@@ -85,8 +85,6 @@ const handleAddProductFromProductsToCart = () => {
           }
         }
         localStorage.setItem(KEY_CART_LIST, JSON.stringify(carts));
-      } else {
-        location.href = "./detail_product_page.html";
       }
       handleGetQuantityCart();
     });
